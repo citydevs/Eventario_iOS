@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +16,7 @@
                             <view contentMode="scaleToFill" id="Zlj-cR-Nvx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -61,7 +61,7 @@
                                                         <rect key="frame" x="50" y="12" width="111" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="textColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hora.png" id="FGJ-FD-drT">
@@ -87,17 +87,17 @@
                                                     <view contentMode="scaleToFill" id="kua-8c-D4g">
                                                         <rect key="frame" x="17" y="45" width="303" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="x6a-aa-LRP">
                                                         <rect key="frame" x="17" y="137" width="303" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JMo-fT-r7s">
-                                                        <rect key="frame" x="271" y="10" width="25" height="25"/>
+                                                        <rect key="frame" x="275" y="9" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="icono_twitter.png">
+                                                        <state key="normal" image="twitter1.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -105,9 +105,10 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9HE-3g-vCg">
-                                                        <rect key="frame" x="218" y="10" width="25" height="25"/>
+                                                        <rect key="frame" x="230" y="9" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="FB" image="Facebook.png">
+                                                        <state key="normal" title="FB" image="facebook1.png">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -185,7 +186,7 @@
                                                     <view contentMode="scaleToFill" id="SAB-7g-kSl">
                                                         <rect key="frame" x="17" y="109" width="182" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nombre.png" id="Ygc-xq-XuK">
                                                         <rect key="frame" x="17" y="44" width="20" height="20"/>
@@ -201,17 +202,17 @@
                                                         <rect key="frame" x="199" y="-1" width="121" height="222"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     </mapView>
+                                                    <view contentMode="scaleToFill" id="XuV-CT-RsX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="1"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="El Patio de mi casa, es particular" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pNx-IM-wXr">
                                                         <rect key="frame" x="47" y="28" width="144" height="51"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" id="XuV-CT-RsX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="1"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -228,8 +229,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eventos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1lu-xB-Ldn">
-                                        <rect key="frame" x="122" y="31" width="76" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1lu-xB-Ldn">
+                                        <rect key="frame" x="122" y="30" width="76" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,7 +247,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95246731510000004" green="0.098302434679999995" blue="0.2228135121" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.027450980392156862" green="0.40784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -355,7 +356,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <webView contentMode="scaleToFill" id="dfD-cb-CLO">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -385,16 +386,6 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Ff-34-GaZ">
-                                <rect key="frame" x="263" y="515" width="51" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="flecha2.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="eBg-Qr-97k" eventType="touchDown" id="uUB-s3-Mt6"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" id="Gxe-s0-6ff">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -416,19 +407,18 @@
                                             <action selector="regresar:" destination="eBg-Qr-97k" eventType="touchDown" id="OSa-Ko-AZU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cwv-Of-88n">
-                                        <rect key="frame" x="268" y="27" width="32" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Ff-34-GaZ">
+                                        <rect key="frame" x="273" y="24" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Ruta">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="Eventario_pantalla_ícono_localizaciónx35d.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="openMaps:" destination="eBg-Qr-97k" eventType="touchDown" id="aDo-CR-Lf0"/>
+                                            <action selector="getCurrentLocation:" destination="eBg-Qr-97k" eventType="touchDown" id="uUB-s3-Mt6"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -452,7 +442,7 @@
                             <view contentMode="scaleToFill" id="KHE-u9-0Pm">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -476,16 +466,6 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QZ2-mI-w4X">
-                                <rect key="frame" x="270" y="427" width="50" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="flecha2.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="6hE-E2-NKM" eventType="touchDown" id="Qkf-W7-mTW"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" id="6E4-YV-mXd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -507,19 +487,18 @@
                                             <action selector="regresar:" destination="6hE-E2-NKM" eventType="touchDown" id="WSz-qr-3Ki"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u7Y-gN-Lud">
-                                        <rect key="frame" x="268" y="27" width="32" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QZ2-mI-w4X">
+                                        <rect key="frame" x="273" y="24" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Ruta">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="Eventario_pantalla_ícono_localizaciónx35d.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="openMaps:" destination="6hE-E2-NKM" eventType="touchDown" id="cvO-gl-EzS"/>
+                                            <action selector="getCurrentLocation:" destination="6hE-E2-NKM" eventType="touchDown" id="Qkf-W7-mTW"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -563,7 +542,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <webView contentMode="scaleToFill" id="Rae-Jb-kKp">
                                 <rect key="frame" x="0.0" y="63" width="320" height="417"/>
@@ -616,7 +595,7 @@
                                                         <rect key="frame" x="53" y="15" width="111" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="textColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hora.png" id="75W-MK-aRV">
@@ -642,17 +621,17 @@
                                                     <view contentMode="scaleToFill" id="pWb-dR-XdS">
                                                         <rect key="frame" x="17" y="45" width="303" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="aBT-uC-PDW">
                                                         <rect key="frame" x="17" y="137" width="303" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CMn-1d-86F">
-                                                        <rect key="frame" x="218" y="12" width="25" height="25"/>
+                                                        <rect key="frame" x="269" y="9" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="icono_twitter.png">
+                                                        <state key="normal" image="twitter1.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -660,9 +639,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yod-AI-oXZ">
-                                                        <rect key="frame" x="271" y="10" width="22" height="29"/>
+                                                        <rect key="frame" x="214" y="9" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="FB" image="icono_facebook.png">
+                                                        <state key="normal" title="FB" image="facebook1.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -740,7 +719,7 @@
                                                     <view contentMode="scaleToFill" id="CRy-2Y-DaD">
                                                         <rect key="frame" x="17" y="83" width="182" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nombre.png" id="Z4D-IP-NQb">
                                                         <rect key="frame" x="17" y="34" width="20" height="20"/>
@@ -801,14 +780,13 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95246731510000004" green="0.098302434679999995" blue="0.2228135121" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="btnContacto" destination="KdD-34-ZZG" id="0cs-i4-4fb"/>
                         <outlet property="btnPrecio" destination="5z6-lv-a0s" id="GLH-Uo-sT6"/>
@@ -834,25 +812,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cine.png" width="200" height="200"/>
-        <image name="Facebook.png" width="358" height="364"/>
+        <image name="Cine.png" width="201" height="201"/>
+        <image name="Eventario_pantalla_ícono_localizaciónx35d.png" width="350" height="350"/>
         <image name="back2.png" width="500" height="500"/>
         <image name="calendario.png" width="195" height="191"/>
         <image name="dinero1.png" width="195" height="191"/>
-        <image name="flecha2.png" width="351" height="351"/>
+        <image name="facebook1.png" width="51" height="51"/>
         <image name="hora.png" width="195" height="191"/>
-        <image name="icono_facebook.png" width="113" height="191"/>
-        <image name="icono_twitter.png" width="195" height="175"/>
         <image name="informacion1.png" width="195" height="191"/>
         <image name="nombre.png" width="195" height="191"/>
         <image name="telefono1.png" width="195" height="191"/>
         <image name="titulo.png" width="195" height="191"/>
+        <image name="twitter1.png" width="51" height="51"/>
         <image name="web1.png" width="195" height="191"/>
     </resources>
-    <color key="tintColor" red="0.95246731510000004" green="0.098302434679999995" blue="0.2228135121" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

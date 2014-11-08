@@ -9,7 +9,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-@interface DescripcionViewController : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate>
+
+#import "GAITrackedViewController.h"
+
+@interface DescripcionViewController : GAITrackedViewController <MKMapViewDelegate,CLLocationManagerDelegate>
 @property (nonatomic,retain) NSMutableDictionary *evento;
 @property (strong, nonatomic) CLLocationManager *LocationManager;
 @property (weak, nonatomic) IBOutlet UILabel *nombre;

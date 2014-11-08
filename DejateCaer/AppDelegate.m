@@ -9,6 +9,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
 
 @implementation AppDelegate
 
@@ -40,7 +42,24 @@
     }
     
      self.window.rootViewController = controller;
+    
+    
+    
+    // código para analytics
+    
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // 2
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    
+    // 3
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // 4
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-56507535-1"];
 
+    tracker.allowIDFACollection = NO;
+    /***************************/
     return YES;
 }
 

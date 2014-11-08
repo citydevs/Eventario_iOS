@@ -29,6 +29,7 @@
 }
 - (void)viewDidLoad
 {
+    
     _mapa.delegate=self;
     //[_mapa addGestureRecognizer:tapRec];
     
@@ -53,7 +54,7 @@
     
     [_mapa setRegion:region animated:YES];
     //[self getCurrentLocation:nil];
-    
+    [self openMaps:nil];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

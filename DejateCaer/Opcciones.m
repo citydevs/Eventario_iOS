@@ -16,6 +16,9 @@
 }
 - (id)initWithFrame:(CGRect)frame
 {
+    UIImage *thumbImage = [UIImage imageNamed:@"slider2.png"];
+    [[UISlider appearance] setThumbImage:thumbImage
+                                forState:UIControlStateNormal];
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -29,6 +32,9 @@
     return self;
 }
 -(void)loadView{
+   
+   
+    
     [_slide addTarget:self action:@selector(slidingStopped:)forControlEvents:UIControlEventTouchUpInside];
     [_slide addTarget:self action:@selector(slidingStopped:)forControlEvents:UIControlEventTouchUpOutside];
     [self inicio];
@@ -64,6 +70,10 @@
     return UIStatusBarStyleLightContent;
 }
 -(void)inicio{
+    UIImage *thumbImage = [UIImage imageNamed:@"slider2.png"];
+    [[UISlider appearance] setThumbImage:thumbImage
+                                forState:UIControlStateNormal];
+
      radio=[delegate.user_radio doubleValue];
     if (radio==0) {
        // radio=500;
@@ -115,7 +125,9 @@
 }
 
 -(void)willMoveToSuperview:(UIView *)newSuperview {
-    
+    UIImage *thumbImage = [UIImage imageNamed:@"slider2.png"];
+    [[UISlider appearance] setThumbImage:thumbImage
+                                forState:UIControlStateNormal];
     if (delegate.isOption) {
         [_slide addTarget:self action:@selector(slidingStopped:)forControlEvents:UIControlEventTouchUpInside];
         [_slide addTarget:self action:@selector(slidingStopped:)forControlEvents:UIControlEventTouchUpOutside];
@@ -146,14 +158,20 @@
 }
 -(IBAction)acerca:(id)sender{
 
-    UIAlertView *acerca=[[UIAlertView alloc]initWithTitle:@"Acerca de Eventario" message:@"Eventario en su versión beta, permite  encontrar eventos en la ciudad de México de una manera fácil y amigable, los eventos que esta aplicación presenta  son eventos que promueven la ciudad de México. Con esto dar siempre al usuario una opcción atractiva para asisitir a los eventos que la ciudad le ofrece. " delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+    UIAlertView *acerca=[[UIAlertView alloc]initWithTitle:@"Acerca de Eventario" message:@"Eventario es una aplicación móvil que determina tu localización y te sugiere los eventos que la ciudad promueve. Al seleccionar un evento, la aplicación te muestra una descripción con detalles como la fecha, hora, lugar y precio, además de que te indica cómo llegar. Para encontrar actividades también puedes ingresar una dirección específica o usar la navegación en el mapa. La información de los eventos que encuentres la puedes compartir en Facebook y en Twitter, para así ayudar a promover las actividades que te parezcan más interesantes." delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
     [acerca show];
 }
 
 -(IBAction)terminos:(id)sender{
     
-    UIAlertView *terminos=[[UIAlertView alloc]initWithTitle:@"Términos de Uso" message:@"Esta aplicación es de código abierto, puedes encontrar más información en www.eventario.mx " delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+    UIAlertView *terminos=[[UIAlertView alloc]initWithTitle:@"Términos de Uso" message:@"Esta aplicación es de código abierto, desarrollada durante el programa CódigoCDMX del LabPLC, puedes encontrar más información en www.eventario.mx" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
     [terminos show];
+}
+
+-(IBAction)creditos:(id)sender{
+    
+    UIAlertView *creditos=[[UIAlertView alloc]initWithTitle:@"Créditos" message:@"Eventario fué derrollado por Carlos Castellanos - iOS Developer \n Mike Morán - Android Developer \n Juan Carlos Sánchez - Ruby Developer \n en colaboración de Gabriela Olivera y Jóse Espinosa." delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+    [creditos show];
 }
 
 @end

@@ -9,14 +9,14 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
+#import "GAITrackedViewController.h"
 
 @protocol SLParallaxControllerDelegate <NSObject>
 
 
 @end
 
-@interface ViewController : UIViewController  <UIGestureRecognizerDelegate,MKMapViewDelegate ,UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate,UITextFieldDelegate>
+@interface ViewController : GAITrackedViewController  <UIGestureRecognizerDelegate,MKMapViewDelegate ,UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) CLLocationManager *LocationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapa;

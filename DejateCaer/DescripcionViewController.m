@@ -45,6 +45,9 @@
 - (void)viewDidLoad
 
 {
+    
+     self.screenName = @"Descripción de Evento";
+    
     _mapa.scrollEnabled=NO;
     if ([[_evento objectForKey:@"precio"] isEqualToString:@"No disponible"]) {
         [ _btnPrecio setImage:[UIImage imageNamed:@"dinero0.png"] forState:UIControlStateNormal];

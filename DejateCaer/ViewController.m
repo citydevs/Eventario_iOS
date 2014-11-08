@@ -80,6 +80,12 @@
 
 - (void)viewDidLoad
 {
+    /********************************************/
+    /* Código para  analytics                   */
+    /********************************************/
+    
+     self.screenName = @"Lista de eventos y Mapa";
+    
     //variable para contar las veces que se mueve el mapa
     moviendo=0;
     //Definde Fondo de la vista
@@ -112,6 +118,8 @@
     LocationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     LocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     [LocationManager startUpdatingLocation];
+    [LocationManager requestWhenInUseAuthorization];
+    [LocationManager requestAlwaysAuthorization];
     
     
     
@@ -298,7 +306,7 @@
         
         if ([data length] >0  )
         {
-                      NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSMutableString * miCadena = [NSMutableString stringWithString: dato];
             NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
             
@@ -317,7 +325,7 @@
                 NSArray *vacio=[[NSArray alloc]initWithObjects:@"VACIO", nil];
                 eventos=vacio;
                 isEmpty=TRUE;
-                UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos cerca de este lugar intenta ampliando el radio desde el menú opcciones" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+                UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos cerca de este lugar intenta ampliando el radio de búsqueda desde el menú opcciones" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
                 [alerta show];
                 
                 [self getMapa:latitud Y :longitud];
@@ -387,7 +395,7 @@
     }
     else{
         //[self.tableView reloadData];
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No tenemos eventos cercanos a ti con ese radio intenta ampliando el radio de busqueda" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No tenemos eventos cercanos a ti en este lugar,intenta de nuevo ampliando el radio de búsqueda en el menú de opcciones " delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
         [alert show];
         _tableView.hidden=TRUE;
         
@@ -566,7 +574,7 @@
             //  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
             // cell = [topLevelObjects objectAtIndex:0];
         }
-        cell.nombre.text= @"No encontramos eventos cerca de este lugar intenta ampliando el radio";
+        cell.nombre.text= @"No encontramos eventos cerca de este lugar intenta ampliando el radio de búsqueda en el menú de opcciones.";
         return cell;
         
     }
@@ -1047,7 +1055,7 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) bl
         
         direccion = [[NSString alloc] initWithData: stringData encoding: NSASCIIStringEncoding];      direccion = [direccion stringByReplacingOccurrencesOfString:@" "
                                                          withString:@"%20"];
-        NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?key=TUKEY&sensor=true&query=%@,distritofederal",direccion];
+        NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyAy1XLjh6iRYgoPmtQD654iTXT_u9GdNVE&sensor=true&query=%@,distritofederal",direccion];
         
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         
