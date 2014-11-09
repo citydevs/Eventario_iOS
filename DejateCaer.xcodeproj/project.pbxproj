@@ -28,6 +28,7 @@
 		F332E86D18D1630600DF538D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F332E86C18D1630600DF538D /* MapKit.framework */; };
 		F332E87218D16CB100DF538D /* eventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F332E87118D16CB100DF538D /* eventCell.m */; };
 		F332E87518D185AD00DF538D /* DescripcionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F332E87418D185AD00DF538D /* DescripcionViewController.m */; };
+		F33F36191A0ED40E00C5EDAA /* pin3.png in Resources */ = {isa = PBXBuildFile; fileRef = F33F36181A0ED40E00C5EDAA /* pin3.png */; };
 		F342E0CB193E468C00A4FF4E /* lupa.png in Resources */ = {isa = PBXBuildFile; fileRef = F342E0C8193E468C00A4FF4E /* lupa.png */; };
 		F342E0D1193E663B00A4FF4E /* tools.png in Resources */ = {isa = PBXBuildFile; fileRef = F342E0CF193E663B00A4FF4E /* tools.png */; };
 		F34A80BF19142E88000E26CF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34A80BE19142E88000E26CF /* AudioToolbox.framework */; };
@@ -140,6 +141,7 @@
 		F332E87118D16CB100DF538D /* eventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventCell.m; sourceTree = "<group>"; };
 		F332E87318D185AD00DF538D /* DescripcionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescripcionViewController.h; sourceTree = "<group>"; };
 		F332E87418D185AD00DF538D /* DescripcionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescripcionViewController.m; sourceTree = "<group>"; };
+		F33F36181A0ED40E00C5EDAA /* pin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin3.png; sourceTree = "<group>"; };
 		F342E0C8193E468C00A4FF4E /* lupa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lupa.png; sourceTree = "<group>"; };
 		F342E0CF193E663B00A4FF4E /* tools.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tools.png; sourceTree = "<group>"; };
 		F34A80BE19142E88000E26CF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -308,6 +310,7 @@
 		F332E83A18D161BA00DF538D /* DejateCaer */ = {
 			isa = PBXGroup;
 			children = (
+				F33F36181A0ED40E00C5EDAA /* pin3.png */,
 				F3C4417F1A0E840A007AE554 /* Library */,
 				F3AECC7C18D374810012748D /* Imagenes */,
 				F3CF6EAD190ACE37003E86EA /* Modelos */,
@@ -618,6 +621,7 @@
 				F3CF6EC5190EE084003E86EA /* asterisco.png in Resources */,
 				F39060381948D6D9000532E3 /* slider2.png in Resources */,
 				F3FEA866193D261200C584FC /* telefono0.png in Resources */,
+				F33F36191A0ED40E00C5EDAA /* pin3.png in Resources */,
 				F3ACD64719479EFB001286A5 /* Exposiciones.png in Resources */,
 				F3FEA869193D261200C584FC /* web1.png in Resources */,
 				F332E84818D161BA00DF538D /* Main_iPhone.storyboard in Resources */,

@@ -161,7 +161,7 @@
     _tableView.rowHeight=90;
     [_tableView setBackgroundColor:[UIColor clearColor]];
     _tableView.tableHeaderView.backgroundColor=[UIColor grayColor];
-   [self.tableView setSeparatorColor:[UIColor redColor]];
+   [self.tableView setSeparatorColor:[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1]];
     // Add Gestoss
     _tapMapViewGesture      = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                       action:@selector(handleTapMapView:)];
@@ -810,7 +810,7 @@
         imagen = [UIImage imageNamed:@"yo.png"];
     }
     else{
-        imagen = [UIImage imageNamed:@"pin2.png"];
+        imagen = [UIImage imageNamed:@"pin3.png"];
     }
     
     aView.image = imagen;
@@ -826,7 +826,7 @@
     }
     else{
         CGRect frame = aView.frame;
-        frame.size.width = 30;
+        frame.size.width = 50;
         frame.size.height = 40;
         aView.frame = frame;
         
@@ -925,8 +925,7 @@ calloutAccessoryControlTapped:(UIControl *)control
 -(void)crearLoadingView{
     //Creamos vista que contiene el spinner y lo enseñamos al usuario
     loading=[[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height/2 -50, 50, 50)];
-    loading.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:0.8];
-   // loading.alpha=0.8;
+    loading.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];   // loading.alpha=0.8;
     loading.layer.cornerRadius = 5;
     loading.layer.masksToBounds = YES;
     
@@ -1006,8 +1005,7 @@ bucar_aqui = [UIButton buttonWithType:UIButtonTypeRoundedRect];
  
 bucar_aqui.frame = CGRectMake(40 , 45, 240, 30.0);
     bucar_aqui.tintColor=[UIColor whiteColor];
-bucar_aqui.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:0.98];
-  //  bucar_aqui.backgroundColor=[UIColor clearColor];
+bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];  //  bucar_aqui.backgroundColor=[UIColor clearColor];
 
     //bucar_aqui.hidden=TRUE;
     //[mapa addSubview:bucar_aqui];
