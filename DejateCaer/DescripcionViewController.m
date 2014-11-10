@@ -26,6 +26,7 @@
     UIView *preciov;
     UIView *contactov;
 }
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -222,6 +223,8 @@
     }
 }
 
+#pragma mark - MapView Delegate
+
 - (MKAnnotationView *) mapView: (MKMapView *) mapView viewForAnnotation: (id<MKAnnotation>) annotation {
     
     /* if ([annotation isKindOfClass:[CalloutAnnotation class]]) {
@@ -240,6 +243,11 @@
     
     MKAnnotationView *aView = [[MKAnnotationView alloc] initWithAnnotation:anotacion1 reuseIdentifier:@"pinView"];
     
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [rightButton setTitle:annotation.title forState:UIControlStateNormal];
+    [aView setRightCalloutAccessoryView:rightButton];
+    
+    // [aView setBackgroundColor:[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:0.7]];
     
     aView.canShowCallout = YES;
     aView.enabled = YES;
@@ -247,21 +255,36 @@
     aView.tag=anotacion1.id_event;
     aView.draggable = YES;
     UIImage *imagen;
-   
-        imagen = [UIImage imageNamed:@"pin2.png"];
-    
+    if ([anotacion1.tipo isEqualToString:@"ubicacion"]) {
+        imagen = [UIImage imageNamed:@"yo.png"];
+    }
+    else{
+        imagen = [UIImage imageNamed:@"pin3.png"];
+    }
     
     aView.image = imagen;
+    //\\-------------------------------------------------------------------------------///
+    // Establecemos el tamaño óptimo para el Pin
+    //\\-------------------------------------------------------------------------------///
     
+    if ([anotacion1.tipo isEqualToString:@"ubicacion"]) {
         CGRect frame = aView.frame;
-        frame.size.width = 30;
+        frame.size.width = 43;
+        frame.size.height = 71;
+        aView.frame = frame;
+    }
+    else{
+        CGRect frame = aView.frame;
+        frame.size.width = 50;
         frame.size.height = 40;
         aView.frame = frame;
         
-    
+    }
     
     
     return aView;
+    //}
+    
     
 }
 
@@ -316,7 +339,8 @@
     
     
     UIView *linea=[[UIView alloc]initWithFrame:CGRectMake(0, texto.frame.size.height+59, 276, 59)];
-    linea.backgroundColor=[UIColor redColor];
+    linea.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
+
     [alerta addSubview:linea];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -380,7 +404,7 @@
     
     
     UIView *linea=[[UIView alloc]initWithFrame:CGRectMake(0, texto.frame.size.height+40, 276, 40)];
-    linea.backgroundColor=[UIColor redColor];
+    linea.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
     [alerta addSubview:linea];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -428,7 +452,8 @@
     
     
     UIView *linea=[[UIView alloc]initWithFrame:CGRectMake(0, texto.frame.size.height+40, 276, 40)];
-    linea.backgroundColor=[UIColor redColor];
+    linea.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
+
     [alerta addSubview:linea];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];

@@ -41,7 +41,7 @@
                                        instantiateViewControllerWithIdentifier: @"inicio"];
     }
     
-     self.window.rootViewController = controller;
+ //    self.window.rootViewController = controller;
     
     
     

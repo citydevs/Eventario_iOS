@@ -20,14 +20,16 @@
         self.backgroundColor=[UIColor whiteColor];
         UIView *selectedView = [[UIView alloc]init];
         selectedView.backgroundColor = [UIColor clearColor];
-        _nombre=[[UILabel alloc]initWithFrame:CGRectMake(10, 5, 250, 70)];
+        _nombre=[[UILabel alloc]initWithFrame:CGRectMake(10, 5, 280, 70)];
         _nombre.textColor=[UIColor whiteColor];
+        _nombre.textAlignment=NSTextAlignmentCenter;
        // [_nombre setFont:[UIFont systemFontOfSize:16]];
         
-        [_nombre setFont:[UIFont fontWithName:@"NIISansLight" size:16]];
+        [_nombre setFont:[UIFont fontWithName:@"NIISansLight" size:15]];
         
-        _nombre.numberOfLines = 3;
-           _nombre.textColor=[UIColor redColor];
+        _nombre.numberOfLines = 4;
+        _nombre.textColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
+
         [self   addSubview:_nombre];
         self.selectedBackgroundView=selectedView;
         

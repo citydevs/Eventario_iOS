@@ -95,7 +95,8 @@
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolyline *route = overlay;
         MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
-        routeRenderer.strokeColor = [UIColor redColor];
+        routeRenderer.strokeColor = [UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
+
          routeRenderer.lineWidth = 3;
         return routeRenderer;
     }
@@ -132,6 +133,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - MapView Delegate
+
 - (MKAnnotationView *) mapView: (MKMapView *) mapView viewForAnnotation: (id<MKAnnotation>) annotation {
     
     /* if ([annotation isKindOfClass:[CalloutAnnotation class]]) {
@@ -150,6 +153,11 @@
     
     MKAnnotationView *aView = [[MKAnnotationView alloc] initWithAnnotation:anotacion1 reuseIdentifier:@"pinView"];
     
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [rightButton setTitle:annotation.title forState:UIControlStateNormal];
+    [aView setRightCalloutAccessoryView:rightButton];
+    
+    // [aView setBackgroundColor:[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:0.7]];
     
     aView.canShowCallout = YES;
     aView.enabled = YES;
@@ -157,23 +165,37 @@
     aView.tag=anotacion1.id_event;
     aView.draggable = YES;
     UIImage *imagen;
-    
-    imagen = [UIImage imageNamed:@"pin2.png"];
-    
+    if ([anotacion1.tipo isEqualToString:@"ubicacion"]) {
+        imagen = [UIImage imageNamed:@"yo.png"];
+    }
+    else{
+        imagen = [UIImage imageNamed:@"pin3.png"];
+    }
     
     aView.image = imagen;
+    //\\-------------------------------------------------------------------------------///
+    // Establecemos el tamaño óptimo para el Pin
+    //\\-------------------------------------------------------------------------------///
     
-    CGRect frame = aView.frame;
-    frame.size.width = 30;
-    frame.size.height = 40;
-    aView.frame = frame;
-    
-    
+    if ([anotacion1.tipo isEqualToString:@"ubicacion"]) {
+        CGRect frame = aView.frame;
+        frame.size.width = 43;
+        frame.size.height = 71;
+        aView.frame = frame;
+    }
+    else{
+        CGRect frame = aView.frame;
+        frame.size.width = 50;
+        frame.size.height = 40;
+        aView.frame = frame;
+        
+    }
     
     
     return aView;
+    //}
+    
     
 }
-
 
 @end

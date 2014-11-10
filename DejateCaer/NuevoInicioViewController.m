@@ -1,33 +1,27 @@
 //
-//  ViewController.m
+//  NuevoInicioViewController.m
 //  DejateCaer
-//  @rockarloz
-//  rockarlos@me.com
-//  Created by Carlos Castellanos on 12/03/14.
+//
+//  Created by Carlos Castellanos on 08/11/14.
 //  Copyright (c) 2014 Carlos Castellanos. All rights reserved.
 //
+//
 #define SCROLL_UPDATE_DISTANCE          .80
-#import "ViewController.h"
+#import "NuevoInicioViewController.h"
 #import "eventCell.h"
 #import "SinEventoTableViewCell.h"
 #import "DescripcionViewController.h"
 #import "AppDelegate.h"
 #import "Mipin.h"
 #import "CustomCalloutAnnotation.h"
-
-
-
-
-@interface ViewController ()
+@interface NuevoInicioViewController ()
 @property (strong, nonatomic)   UITapGestureRecognizer  *tapMapViewGesture;
 @property (strong, nonatomic)   UITapGestureRecognizer  *tapTableViewGesture;
-
 @end
 
-@implementation ViewController
+@implementation NuevoInicioViewController
 {
- 
-  //  NSArray *eventos;
+    //  NSArray *eventos;
     NSString *currentLatitud;
     NSString *currentLongitud;
     NSString *radio;
@@ -44,8 +38,8 @@
     UIView *contenedor_flotante;
     UIView *vista_auxiliar;
     UIButton *bucar_aqui;
-   
-  
+    
+    
     UITapGestureRecognizer* tapDetails;//diseño
     UITapGestureRecognizer* tapRecMap;
     UIView *opcciones;
@@ -53,24 +47,14 @@
     
     AppDelegate *delegate;
     CLLocationCoordinate2D initialLocation;
- 
-    //Vista de Loading que se presenta mientras se hace la peticion 
+    
+    //Vista de Loading que se presenta mientras se hace la peticion
     UIView *loading;
     UIActivityIndicatorView *spinner;
 }
 @synthesize mapa,LocationManager,eventos;
 
-@synthesize heighTableView          = _heighTableView;
 
-
-
--(id)init{
-    self =  [super init];
-    if(self){
-       
-    }
-    return self;
-}
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -84,28 +68,181 @@
     /* Código para  analytics                   */
     /********************************************/
     
-     self.screenName = @"Lista de eventos y Mapa";
+    self.screenName = @"Lista de eventos y Mapa";
     
     //variable para contar las veces que se mueve el mapa
     moviendo=0;
+    
+    
+    UIButton *buscame = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [buscame addTarget:self
+                action:@selector(getCurrentLocation:)
+      forControlEvents:UIControlEventTouchUpInside];
+   
+   // buscame.tintColor=[UIColor blackColor];
+    [buscame setImage:[UIImage imageNamed:@"flecha.png"]  forState:UIControlStateNormal];
+    buscame.frame = CGRectMake(mapa.frame.size.width-30, mapa.frame.size.height-30, 30, 30);
+    buscame.backgroundColor=[UIColor clearColor];
+
+    [mapa addSubview:buscame];
+    
+    UIButton *todos = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [todos addTarget:self
+               action:@selector(filtrar:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [todos setImage:[UIImage imageNamed:@"pin3.png"]  forState:UIControlStateNormal];
+    todos.frame = CGRectMake(5, 5, 30, 30);
+    todos.tag=0;
+    todos.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:todos];
+    UIView *separador=[[UIView alloc]initWithFrame:CGRectMake(39, 10, 1, 24)];
+    separador.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador];
+    
+    UIButton *cine = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cine addTarget:self
+              action:@selector(filtrar:)
+    forControlEvents:UIControlEventTouchUpInside];
+    cine.tintColor=[UIColor blackColor];
+    cine.tag=1;
+    [cine setImage:[UIImage imageNamed:@"Cine.png"]  forState:UIControlStateNormal];
+    cine.frame = CGRectMake(45, 5, 30, 30);
+    cine.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:cine];
+    UIView *separador2=[[UIView alloc]initWithFrame:CGRectMake(79, 10, 1, 24)];
+    separador2.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador2];
+    
+    UIButton *Teatro = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [Teatro addTarget:self
+             action:@selector(filtrar:)
+   forControlEvents:UIControlEventTouchUpInside];
+    Teatro.tintColor=[UIColor blackColor];
+    Teatro.tag=2;
+    [Teatro setImage:[UIImage imageNamed:@"Teatro.png"]  forState:UIControlStateNormal];
+    Teatro.frame = CGRectMake(85, 5, 30, 30);
+    Teatro.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:Teatro];
+    UIView *separador3=[[UIView alloc]initWithFrame:CGRectMake(119, 10, 1, 24)];
+    separador3.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador3];
+    
+
+    UIButton *Infantiles = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [Infantiles addTarget:self
+             action:@selector(filtrar:)
+   forControlEvents:UIControlEventTouchUpInside];
+    Infantiles.tintColor=[UIColor blackColor];
+    Infantiles.tag=3;
+    [Infantiles setImage:[UIImage imageNamed:@"Infantiles.png"]  forState:UIControlStateNormal];
+    Infantiles.frame = CGRectMake(125, 5, 30, 30);
+    Infantiles.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:Infantiles];
+    UIView *separador4=[[UIView alloc]initWithFrame:CGRectMake(159, 10, 1, 24)];
+    separador4.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador4];
+    
+    UIButton *Cultura = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [Cultura addTarget:self
+                   action:@selector(filtrar:)
+         forControlEvents:UIControlEventTouchUpInside];
+    Cultura.tag=4;
+    Cultura.tintColor=[UIColor blackColor];
+    [Cultura setImage:[UIImage imageNamed:@"Cultura.png"]  forState:UIControlStateNormal];
+    Cultura.frame = CGRectMake(165, 5, 30, 30);
+    Cultura.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:Cultura];
+    UIView *separador5=[[UIView alloc]initWithFrame:CGRectMake(199, 10, 1, 24)];
+    separador5.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador5];
+    
+    UIButton *musica = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [musica addTarget:self
+                action:@selector(filtrar:)
+      forControlEvents:UIControlEventTouchUpInside];
+    musica.tag=5;
+    musica.tintColor=[UIColor blackColor];
+    [musica setImage:[UIImage imageNamed:@"Música.png"]  forState:UIControlStateNormal];
+    musica.frame = CGRectMake(205, 5, 30, 30);
+    musica.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:musica];
+    UIView *separador6=[[UIView alloc]initWithFrame:CGRectMake(239, 10, 1, 24)];
+    separador6.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador6];
+    
+    UIButton *aprendizaje = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [aprendizaje addTarget:self
+               action:@selector(filtrar:)
+     forControlEvents:UIControlEventTouchUpInside];
+    aprendizaje.tag=6;
+    aprendizaje.tintColor=[UIColor blackColor];
+    [aprendizaje setImage:[UIImage imageNamed:@"Aprendizaje.png"]  forState:UIControlStateNormal];
+    aprendizaje.frame = CGRectMake(245, 5, 30, 30);
+    aprendizaje.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:aprendizaje];
+    UIView *separador7=[[UIView alloc]initWithFrame:CGRectMake(279, 10, 1, 24)];
+    separador7.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador7];
+    
+    UIButton *tecnologia = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [tecnologia addTarget:self
+                    action:@selector(filtrar:)
+          forControlEvents:UIControlEventTouchUpInside];
+    tecnologia.tag=7;
+    tecnologia.tintColor=[UIColor blackColor];
+    [tecnologia setImage:[UIImage imageNamed:@"Tecnología.png"]  forState:UIControlStateNormal];
+    tecnologia.frame = CGRectMake(285, 5, 30, 30);
+    tecnologia.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:tecnologia];
+    UIView *separador8=[[UIView alloc]initWithFrame:CGRectMake(319, 10, 1, 24)];
+    separador8.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador8];
+    
+    UIButton *expo = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [expo addTarget:self
+                   action:@selector(filtrar:)
+         forControlEvents:UIControlEventTouchUpInside];
+    expo.tag=8;
+    expo.tintColor=[UIColor blackColor];
+    [expo setImage:[UIImage imageNamed:@"Exposiciones.png"]  forState:UIControlStateNormal];
+    expo.frame = CGRectMake(325, 5, 30, 30);
+    expo.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:expo];
+    UIView *separador9=[[UIView alloc]initWithFrame:CGRectMake(359, 10, 1, 24)];
+    separador9.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador9];
+    
+    UIButton *deportivo = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [deportivo addTarget:self
+             action:@selector(filtrar:)
+   forControlEvents:UIControlEventTouchUpInside];
+    deportivo.tag=9;
+    deportivo.tintColor=[UIColor blackColor];
+    [deportivo setImage:[UIImage imageNamed:@"Deportivo.png"]  forState:UIControlStateNormal];
+    deportivo.frame = CGRectMake(365, 5, 30, 30);
+    deportivo.backgroundColor=[UIColor clearColor];
+    [_scroll addSubview:deportivo];
+    UIView *separador10=[[UIView alloc]initWithFrame:CGRectMake(399, 10, 1, 24)];
+    separador10.backgroundColor=[UIColor colorWithRed:(160/255.0) green:(160/255.0) blue:(160/255.0) alpha:1];
+    [_scroll addSubview:separador10];
+
+    
+    
+    
+    [_scroll setContentSize:CGSizeMake(400,44)];
+    
     //Definde Fondo de la vista
     self.view.backgroundColor=[UIColor whiteColor];
-   // self.view.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:1];
+    // self.view.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:1];
+    
+    
+ 
    
     
-    //Banderas para las vistas
-    isArrow=FALSE;
-    delegate.isOption=FALSE;
-  
-    //Añadimos un escuchado de eventos de notificationController  para recargar la pagina
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cerrarOpcciones) name:@"aceptar" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actualizar) name:@"actualizar" object:nil];
-
     //declaramos un variable que nos servira como delegado
     delegate= (AppDelegate *) [[UIApplication sharedApplication] delegate];
     
-   
+    
     
     //Copiamos el radio del delegado por default es  2000 metros
     radio=delegate.user_radio;//@"2000";
@@ -138,53 +275,38 @@
     //iniciamos el mapa
     [self setupMapView];
     
-
+    
     
     [self crearLoadingView];
     
     //obtenemos los eventos
     [self obtenerEventos:LocationManager.location.coordinate.latitude Y:LocationManager.location.coordinate.longitude];
-   
+    //iniciamos con la lista de evnetos oculta
+ 
     
     [super viewDidLoad];
     
-	
+    
 }
 
 -(void)crearTabla{
     
     
-    _tableView = [[UITableView alloc]  initWithFrame: CGRectMake(0, 64, 320, self.view.frame.size.height-64)];
-    
-    _tableView.tableHeaderView  = [[UIView alloc]       initWithFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 290)];
+   
     _tableView.rowHeight=90;
     [_tableView setBackgroundColor:[UIColor clearColor]];
     _tableView.tableHeaderView.backgroundColor=[UIColor grayColor];
-   [self.tableView setSeparatorColor:[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1]];
-    // Add Gestoss
-    _tapMapViewGesture      = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                      action:@selector(handleTapMapView:)];
-    _tapTableViewGesture    = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                      action:@selector(handleTapTableView:)];
-    [_tableView.tableHeaderView addGestureRecognizer:_tapMapViewGesture];
-   
-    
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1]];
     _tableView.dataSource   = self;
     _tableView.delegate     = self;
-    [self.view addSubview:_tableView];
+   
     
-    tapFlechas = [[UITapGestureRecognizer alloc]
-                  initWithTarget:self action:@selector(touchTabla)];
-    
-    
-       
-    [flechas addGestureRecognizer:tapFlechas];
-    _tableView.scrollEnabled=FALSE;
+
     
 }
 
 -(void)setupMapView{
-    mapa                        = [[MKMapView alloc] initWithFrame:CGRectMake(0, 64, 320, _heighTableView)];
+   
     mapa.rotateEnabled = NO;
     [mapa setShowsUserLocation:YES];
     mapa.delegate = self;
@@ -197,15 +319,11 @@
 }
 
 
-#pragma mark - Comportamiento de la vista del mapa y lista
-
-
-
 
 -(int)respuestaObtenerEventos{
     if (!isEmpty) {
         //si tiene evento
-          return 1;
+        return 1;
     }
     else {
         //no tiene eventos
@@ -226,7 +344,7 @@
     
     NSString *urlString =@"http://eventario.mx/eventos.json";
     NSString *url=[NSString stringWithFormat:@"%@?lon=%@&lat=%@&dist=%@",urlString,currentLongitud,currentLatitud,radio];
-   // NSString *url=@"http://dev.codigo.labplc.mx/EventarioWeb/eventos.json";
+    // NSString *url=@"http://dev.codigo.labplc.mx/EventarioWeb/eventos.json";
     NSLog(@"%@",url);
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -238,15 +356,16 @@
             NSMutableString * miCadena = [NSMutableString stringWithString: dato];
             NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
             
-           
-           // lugares= [jsonObject objectForKey:@"eventos"];//[consulta objectForKey:@"ubicaciones"];
+            
+            // lugares= [jsonObject objectForKey:@"eventos"];//[consulta objectForKey:@"ubicaciones"];
             
             eventos=[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
+            _original=[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
             
             
             
-
-
+            
+            
             
             if ([eventos count]==0) {
                 _tableView.rowHeight=450;
@@ -273,11 +392,11 @@
                 [self getMapa:latitud Y :longitud];
                 
                 [self.tableView reloadData];
-                  [self respuestaObtenerEventos];
+                [self respuestaObtenerEventos];
                 
                 
             }
-           // [self respuetaObtenerEventos:1];
+            // [self respuetaObtenerEventos:1];
             //[self getLista];
             
         }
@@ -288,15 +407,15 @@
             NSArray *vacio=[[NSArray alloc]initWithObjects:@"VACIO", nil];
             eventos=vacio;
             isEmpty=TRUE;
-          
+            
             [self getMapa:latitud Y :longitud];
             [self.tableView reloadData];
-
+            
             loading.hidden=TRUE;
-              [self respuestaObtenerEventos];
+            [self respuestaObtenerEventos];
         }
     });
-  
+    
 }
 
 -(void)getLista {
@@ -337,7 +456,7 @@
 {
     //Quitamos todo los markers que pueda tener el mapa
     [mapa removeAnnotations:mapa.annotations];
-   
+    
     if (!isEmpty) {
         
         
@@ -416,17 +535,17 @@
             detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
             
         }
-   
         
-    
-    
-    detalles.evento=[eventos objectAtIndex:indexPath.row];
-    detalles.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-   // [self.navigationController pushViewController:detalles animated:YES];
-    
-    
-    [self presentViewController:detalles animated:YES completion:NULL];
-    
+        
+        
+        
+        detalles.evento=[eventos objectAtIndex:indexPath.row];
+        detalles.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        // [self.navigationController pushViewController:detalles animated:YES];
+        
+        
+        [self presentViewController:detalles animated:YES completion:NULL];
+        
     }
     
     
@@ -460,18 +579,18 @@
         
         cell.selectionStyle= UITableViewCellSelectionStyleNone;
         
-       // [self buscar_imagen:[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"imagen"]];
+        // [self buscar_imagen:[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"imagen"]];
         
         NSString *cat=[NSString stringWithFormat:@("%@.png"),[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"categoria"]];
         cell.imagen.image=[UIImage imageNamed:cat]; //[delegate.cacheImagenes objectForKey:[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"imagen"]];
         
         cell.nombre.text= [[eventos objectAtIndex:indexPath.row ]   objectForKey:@"nombre"];
         NSString *horas=[[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"hora_inicio"]
-         stringByReplacingOccurrencesOfString:@"2000-01-01T" withString:@""];
-        horas=[horas  stringByReplacingOccurrencesOfString:@":00Z" withString:@""];
-       
-        NSString *horasfin=[[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"hora_fin"]
                          stringByReplacingOccurrencesOfString:@"2000-01-01T" withString:@""];
+        horas=[horas  stringByReplacingOccurrencesOfString:@":00Z" withString:@""];
+        
+        NSString *horasfin=[[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"hora_fin"]
+                            stringByReplacingOccurrencesOfString:@"2000-01-01T" withString:@""];
         horasfin=[horasfin  stringByReplacingOccurrencesOfString:@":00Z" withString:@""];
         
         cell.hora.text=[NSString stringWithFormat:@("%@ - %@"),horas,horasfin];
@@ -481,15 +600,15 @@
         
         cell.distancia.text= [NSString stringWithFormat:(@"%.2f Km."),metros];
         /*
-        if (metros>=1) {
-            //metros=(metros/1000);
-            
-            cell.distancia.text= [NSString stringWithFormat:(@"%@ Km."),[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"distancia"]];
-        }
-        else{
-            NSLog(@"%@",[[eventos objectAtIndex:indexPath.row ] objectForKey:@"distancia"]);
-            cell.distancia.text= [NSString stringWithFormat:(@"%@ m"),[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"distancia"]];
-        }*/
+         if (metros>=1) {
+         //metros=(metros/1000);
+         
+         cell.distancia.text= [NSString stringWithFormat:(@"%@ Km."),[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"distancia"]];
+         }
+         else{
+         NSLog(@"%@",[[eventos objectAtIndex:indexPath.row ] objectForKey:@"distancia"]);
+         cell.distancia.text= [NSString stringWithFormat:(@"%@ m"),[[eventos objectAtIndex:indexPath.row ]   objectForKey:@"distancia"]];
+         }*/
         return cell;
     }
     
@@ -528,7 +647,7 @@
             int footerHeight = tableHeight - cellsHeight;
             tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, footerHeight)];
             
-          //  [tableView.tableFooterView setBackgroundColor:[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:1]];
+            //  [tableView.tableFooterView setBackgroundColor:[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:1]];
             
             [tableView.tableFooterView setBackgroundColor:[UIColor whiteColor]];
         }
@@ -546,101 +665,9 @@
 
 
 -(void)actualizar{
-       radio=delegate.user_radio;
+    radio=delegate.user_radio;
     
     [self getCurrentLocation:nil];
-    
-}
--(IBAction)opcciones:(id)sender
-{
-
-    delegate.isOption=TRUE;
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"Opcciones" owner:nil options:nil];
-    
-    // Find the view among nib contents (not too hard assuming there is only one view in it).
-    opcciones = [nibContents lastObject];
-    opcciones.frame=CGRectMake(2, 0, self.view.frame.size.width-4, self.view.frame.size.height);
-    //opcciones.backgroundColor=[UIColor grayColor];
-    opcciones.alpha=1;
-    opcciones.layer.cornerRadius = 5;
-    opcciones.layer.masksToBounds = YES;
-    
-    [UIView transitionFromView:self.view
-                        toView:opcciones
-                      duration:1
-                       options:UIViewAnimationOptionBeginFromCurrentState
-                    completion:nil];
-    
-  
-    
-}
--(void)cerrarOpcciones{
-    delegate.isOption=FALSE;
-    //self.navigationController.navigationBarHidden = NO;
-    [UIView transitionFromView:opcciones
-                        toView:self.view
-                      duration:1
-                       options:UIViewAnimationOptionBeginFromCurrentState
-                    completion:nil];
-    
-    //[opcciones removeFromSuperview];
-}
-// vista de cuando se muestra la lista
--(void)touchTabla{
-    if (!isArrow) {
-     
-
-        isArrow=TRUE; //diseño
-        
-       [UIView animateWithDuration:0.2
-                              delay:0.1
-                            options: UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                             self.tableView.frame           = CGRectMake(0, 20,320, self.view.frame.size.height-20);
-                             
-                             mapa.frame             = CGRectMake(0, 20, 320, 278);
-                             [mapa addSubview:contenedor_flotante];
-                             
-                             
-                             self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0, self.view.frame.size.width, self.view.frame.size.height/2+34)];
-                             self.tableView.tableHeaderView.backgroundColor=[UIColor clearColor];
-                             self.tableView.scrollEnabled=YES;
-                             
-                             NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"flechas_cierran" owner:nil options:nil];
-                             
-                             // llamar la vista desde el XIB
-                           
-                       
-                             
-                             
-                             
-                             flechas = [nibContents lastObject];
-                             flechas.frame=CGRectMake(0, self.tableView.tableHeaderView.frame.size.height-40, 320, 50);
-                             
-                             
-                             
-
-                             
-                           //  self.tableView.tableHeaderView.backgroundColor=[UIColor blackColor];
-                                                         [self.tableView.tableHeaderView addSubview:flechas];
-                             [flechas addGestureRecognizer:tapFlechas];
-                             
-                             
-                             
-                             
-                             
-                             
-                         }
-                         completion:^(BOOL finished){
-                            
-                             [self.tableView setScrollEnabled:YES];
-                             [self.tableView.tableHeaderView addGestureRecognizer:_tapMapViewGesture];
-                             
-                          }];
-    }
-    else{
-      
-    }
     
 }
 
@@ -652,7 +679,7 @@
             
         }
         else{
-          
+            
         }
     }
     
@@ -660,20 +687,20 @@
         [self.view endEditing:YES];
     }
     
-        if (textField.text && textField.text.length > 0)
-        {
-           // NSLog(@"%@",buscar.text);
-           // NSLog(@"%@",buscar.text);
-            [self.view endEditing:YES];
-            [self getPlaces];
-        }
-        else
-        {
-            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"Introduce un lugar de búsqueda" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
-            [alerta show];
-        }
-     [self.view endEditing:YES];
-        return YES;
+    if (textField.text && textField.text.length > 0)
+    {
+        // NSLog(@"%@",buscar.text);
+        // NSLog(@"%@",buscar.text);
+        [self.view endEditing:YES];
+        [self getPlaces];
+    }
+    else
+    {
+        UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"Introduce un lugar de búsqueda" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+        [alerta show];
+    }
+    [self.view endEditing:YES];
+    return YES;
 }
 
 -(void)getPlacesApple{
@@ -684,7 +711,7 @@
         {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos el lugar que buscas" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
-           // NSLog(@"Geocode failed with error: %@", error);
+            // NSLog(@"Geocode failed with error: %@", error);
             //[self displayError:error];
             
             return;
@@ -692,8 +719,8 @@
         }
         
         CLPlacemark *placemark=[placemarks objectAtIndex:0];
-      //  NSLog(@"Received placemarks: %@", placemarks);
-       // NSLog(@"%f,%f",placemark.location.coordinate.latitude,placemark.location.coordinate.longitude);
+        //  NSLog(@"Received placemarks: %@", placemarks);
+        // NSLog(@"%f,%f",placemark.location.coordinate.latitude,placemark.location.coordinate.longitude);
         loading.hidden=FALSE;
         [self obtenerEventos: placemark.location.coordinate.latitude Y:placemark.location.coordinate.longitude];
         //[self displayPlacemarks:placemarks];
@@ -800,28 +827,28 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 //Metodo para Cambiar el CallOutView del Marker en el mapa
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-   
+    
     /*if(![view.annotation isKindOfClass:[MKUserLocation class]]) {
-        CustomCalloutAnnotation *calloutView = (CustomCalloutAnnotation *)[[[NSBundle mainBundle] loadNibNamed:@"CustomCallOutView" owner:self options:nil] objectAtIndex:0];
-        CGRect calloutViewFrame = calloutView.frame;
-        calloutViewFrame.origin = CGPointMake(-calloutViewFrame.size.width/2 + 85, -calloutViewFrame.size.height);
-        calloutView.frame = calloutViewFrame;
-        calloutView.nombre.text=@"fsdfr";
-        [calloutView.nombre setText:[(Mipin*)[view annotation] title]];
-        [calloutView.lugar setText:[(Mipin*)[view annotation] lugar]];
-        [calloutView.hora setText:[(Mipin*)[view annotation] hora]];
-        UIView *d=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 00)];
-        d.backgroundColor=[UIColor greenColor];
-        [calloutView addSubview:d];
-        [calloutView addGestureRecognizer:tapDetails];
-        [view addSubview:calloutView];
-         
-        
-    }*/
-     }
+     CustomCalloutAnnotation *calloutView = (CustomCalloutAnnotation *)[[[NSBundle mainBundle] loadNibNamed:@"CustomCallOutView" owner:self options:nil] objectAtIndex:0];
+     CGRect calloutViewFrame = calloutView.frame;
+     calloutViewFrame.origin = CGPointMake(-calloutViewFrame.size.width/2 + 85, -calloutViewFrame.size.height);
+     calloutView.frame = calloutViewFrame;
+     calloutView.nombre.text=@"fsdfr";
+     [calloutView.nombre setText:[(Mipin*)[view annotation] title]];
+     [calloutView.lugar setText:[(Mipin*)[view annotation] lugar]];
+     [calloutView.hora setText:[(Mipin*)[view annotation] hora]];
+     UIView *d=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 00)];
+     d.backgroundColor=[UIColor greenColor];
+     [calloutView addSubview:d];
+     [calloutView addGestureRecognizer:tapDetails];
+     [view addSubview:calloutView];
+     
+     
+     }*/
+}
 
 -(void)touchMap{
-     [self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 
@@ -831,10 +858,10 @@ calloutAccessoryControlTapped:(UIControl *)control
     
     [self.view endEditing:YES];
     CLLocationCoordinate2D centre = [mapa centerCoordinate];
-   // NSLog(@"%f, %f", centre.latitude, centre.longitude);
+    // NSLog(@"%f, %f", centre.latitude, centre.longitude);
     //[mapa removeAnnotation:annotationPointUbication];
     radio=delegate.user_radio;
-   // annotationPointUbication = [[Mipin alloc] initWithTitle:@"Centro" subtitle:@"" andCoordinate:centre tipo:@"ubicacion" evento:0];
+    // annotationPointUbication = [[Mipin alloc] initWithTitle:@"Centro" subtitle:@"" andCoordinate:centre tipo:@"ubicacion" evento:0];
     
     // [mapa addAnnotation:annotationPointUbication];
     
@@ -872,7 +899,7 @@ calloutAccessoryControlTapped:(UIControl *)control
     vista_auxiliar=[[UIView alloc]initWithFrame:CGRectMake(1, 1, 308, 33)];
     vista_auxiliar.backgroundColor=[UIColor whiteColor];
     [contenedor_flotante addSubview:vista_auxiliar];
-
+    
     
     UIImageView *lupa=[[UIImageView alloc]initWithFrame:CGRectMake(7, 7, 15, 15)];
     lupa.image=[UIImage imageNamed:@"lupa.png"];
@@ -883,7 +910,7 @@ calloutAccessoryControlTapped:(UIControl *)control
     buscar.placeholder=@"Zamora 54,Condesa,Cuahutemoc";
     [buscar setFont:[UIFont systemFontOfSize:10]];
     buscar.returnKeyType = UIReturnKeySearch;
-
+    
     [vista_auxiliar addSubview:buscar];
     
     UIView * aux=[[UIView alloc]initWithFrame:CGRectMake(240, 0, 1, 34)];
@@ -909,7 +936,7 @@ calloutAccessoryControlTapped:(UIControl *)control
     herramientas.frame = CGRectMake(275, 0, 35, 35);
     UIImage *btnImage2 = [UIImage imageNamed:@"tools.png"];
     UIImageView *img2=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, herramientas.frame.size.width, herramientas.frame.size.height)];
-      [herramientas setBackgroundImage:btnImage2 forState:UIControlStateNormal];
+    [herramientas setBackgroundImage:btnImage2 forState:UIControlStateNormal];
     //img2.image=btnImage2;
     [herramientas addSubview:img2];
     [vista_auxiliar addSubview:aux2];
@@ -922,27 +949,24 @@ calloutAccessoryControlTapped:(UIControl *)control
 }
 
 -(void)crearBuscaAqui{
-bucar_aqui = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-[bucar_aqui addTarget:self
-               action:@selector(getCenter:)
-     forControlEvents:UIControlEventTouchUpInside];
-[bucar_aqui setTitle:@"Buscar en esta zona" forState:UIControlStateNormal];
+    bucar_aqui = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [bucar_aqui addTarget:self
+                   action:@selector(getCenter:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [bucar_aqui setTitle:@"Buscar en esta zona" forState:UIControlStateNormal];
     //UIImage *buttonImage=[UIImage imageNamed:@"buscaaqui.png"];
-//    [bucar_aqui setBackgroundImage:buttonImage forState:UIControlStateNormal];
- 
-bucar_aqui.frame = CGRectMake(40 , 45, 240, 30.0);
+    //    [bucar_aqui setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    bucar_aqui.frame = CGRectMake(40 , 5, 240, 30.0);
     bucar_aqui.tintColor=[UIColor whiteColor];
-bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];  //  bucar_aqui.backgroundColor=[UIColor clearColor];
-
-    //bucar_aqui.hidden=TRUE;
-    //[mapa addSubview:bucar_aqui];
+    bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];  
 }
 
 
 #pragma mark - Metodos Auxiliares
 
 -(int)test{
-
+    
     return 0;
 }
 
@@ -951,35 +975,17 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     //NSLog(@"scrolleando tabla");
     //  [self touchTabla];
 }
-/*- (NSIndexPath *)indexPathForRowAtPoint:(CGPoint)point{
-    return point;
-}*/
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat height = scrollView.frame.size.height;
-    
-    CGFloat contentYoffset = scrollView.contentOffset.y;
-   // NSLog(@"el y %f",contentYoffset);
-    if (contentYoffset<0) {
-        
-    }
-    CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
-    
-    if(distanceFromBottom < height)
-    {
-     //   NSLog(@"end of the table");
-    }
-}
+
 
 -(void) getPlaces{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *direccion=buscar.text;//@"juan%20escutia%2094,la%20Condesa";
-       
+        
         
         NSData *stringData = [direccion dataUsingEncoding: NSASCIIStringEncoding allowLossyConversion: YES];
         
         direccion = [[NSString alloc] initWithData: stringData encoding: NSASCIIStringEncoding];      direccion = [direccion stringByReplacingOccurrencesOfString:@" "
-                                                         withString:@"%20"];
+                                                                                                                                                       withString:@"%20"];
         NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyAy1XLjh6iRYgoPmtQD654iTXT_u9GdNVE&sensor=true&query=%@,distritofederal",direccion];
         
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
@@ -999,9 +1005,9 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
                 [alerta show];
             }
             else{
-            NSDictionary *primero=[[jsonObject objectForKey:@"results"]objectAtIndex:0];
-            NSDictionary *coordenadas=[[primero objectForKey:@"geometry"] objectForKey:@"location"];
-            
+                NSDictionary *primero=[[jsonObject objectForKey:@"results"]objectAtIndex:0];
+                NSDictionary *coordenadas=[[primero objectForKey:@"geometry"] objectForKey:@"location"];
+                
                 [self obtenerEventos: [[coordenadas objectForKey:@"lat"] floatValue] Y:[[coordenadas objectForKey:@"lng"] floatValue]];}
         }
         else{
@@ -1014,14 +1020,14 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     
 }
 -(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
-   
+    
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint translatedPoint = [recognizer translationInView:self.view];
-         NSLog(@"magnitude: %f", translatedPoint.y);
+        NSLog(@"magnitude: %f", translatedPoint.y);
         if (translatedPoint.y<0) {
-             NSLog(@"arriba");
-             isArrow=FALSE;
-            [self touchTabla];
+            NSLog(@"arriba");
+            isArrow=FALSE;
+           // [self touchTabla];
             
         }
         
@@ -1031,13 +1037,13 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
 
 -(void)buscar_imagen:(NSString *) url
 {
-   
+    
     
     NSObject *o = [delegate.cacheImagenes objectForKey:url];
     if( o == nil ){
         @try{
             [delegate.cacheImagenes setObject:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: url]]]
-                     forKey:url];
+                                       forKey:url];
         }
         @catch (NSException *exception) {
             
@@ -1063,7 +1069,7 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     // get the lat & lng of the map region
     double lat = mapRegion.center.latitude;
     double lng = mapRegion.center.longitude;
-
+    
     // note: I have a variable I have saved called lastLocationCoordinate. It is of type
     // CLLocationCoordinate2D and I initially set it in the didUpdateUserLocation
     // delegate method. I also update it again when this function is called
@@ -1080,9 +1086,9 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     { NSLog(@"se movio");
         if (moviendo>3) {
             
-        
-       [mapa addSubview:bucar_aqui];
-           }
+            
+            [mapa addSubview:bucar_aqui];
+        }
     }
     
     // resave the last location center for the next map move event
@@ -1090,5 +1096,206 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     initialLocation.longitude = mapRegion.center.longitude;
     
 }
-@end
+-(void)viewDidAppear:(BOOL)animated{
 
+    [self viewDidLoad];
+}
+
+-(IBAction)filtrar:(id)sender{
+    UIButton *a=(UIButton *)sender;
+    NSLog(@"tag %i",(int)a.tag);
+    
+    if(a.tag==0){
+    
+        eventos=_original;
+        [self.tableView reloadData];
+    }
+    else if (a.tag==1)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+        // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+        
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Cine"] ) {
+            
+            [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    }
+    
+    else if (a.tag==2)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Teatro"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        }
+    
+    else if (a.tag==3)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Aprendizaje"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+    }
+    
+    else if (a.tag==4)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Cultura"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    }
+    else if (a.tag==5)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Música"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+      
+    }
+    else if (a.tag==6)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Aprendizaje"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    }
+    else if (a.tag==7)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Tecnología"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    }
+    else if (a.tag==8)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Exposiciones"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    }
+    else if (a.tag==9)
+    {
+        
+        eventos=_original;
+
+        NSMutableArray *filtrados=[[NSMutableArray alloc]init];
+        for (int i=0; i<[eventos count]; i++) {
+            // buscamos en todo el array de eventos la categoria para ir filtrantodolos
+            
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Deportivo"] ) {
+                
+                [filtrados addObject:[eventos objectAtIndex:i]];
+            }
+            
+        }
+        eventos=nil;
+        eventos=filtrados;
+        [self.tableView reloadData];
+        
+    
+    }
+    
+    //hay que actualizae el mapa tambien
+    //[self getMapa:latitud Y :longitud];
+}
+
+
+@end
