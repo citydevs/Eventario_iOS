@@ -144,7 +144,8 @@
     
     //obtenemos los eventos
     [self obtenerEventos:LocationManager.location.coordinate.latitude Y:LocationManager.location.coordinate.longitude];
-   
+    //iniciamos con la lista de evnetos oculta
+    [self handleTapMapView:nil];
     
     [super viewDidLoad];
     
@@ -199,7 +200,78 @@
 
 #pragma mark - Comportamiento de la vista del mapa y lista
 
+//vista de la lista escondida
+- (void)handleTapMapView:(UIGestureRecognizer *)gesture {
+    isArrow=NO;
+    UIView *linea=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 1)];
+    linea.backgroundColor=[UIColor clearColor];
+    UIImageView *mas=[[UIImageView alloc]initWithFrame:CGRectMake(140, 5, 45, 45)];
+    mas.image=[UIImage imageNamed:@"mas.png"];
+    mas.hidden=TRUE;
+     [self.view endEditing:YES];
+    //NSLog(@"lista escondida");
+      [_tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+      // [self.tableView setContentOffset:CGPointZero animated:NO];
+    [UIView animateWithDuration:0.2
+                          delay:0.1
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                                                  //custom al mapa
+                         mapa.frame = CGRectMake(0, 20, 320, self.view.frame.size.height-73);
+                         [mapa addSubview:contenedor_flotante];
+                         self.tableView.frame           = CGRectMake(0, self.view.frame.size.height-53,320, 53);
+                        
+                                                  self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 53)];
+                         
+                         //NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"flechas" owner:nil options:nil];
+                         
+                         // Cargamos la vista desde el XIB
+                         // flechas = [nibContents lastObject];
+                        
+                         
+                         UIView *view2=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 52)];
+                         view2.backgroundColor=[UIColor clearColor];
+                         [flechas addGestureRecognizer:tapFlechas];
+                        
+                         [self.tableView.tableHeaderView addSubview:linea];
+                         [self.tableView.tableHeaderView addSubview:mas];
+                         [self.tableView.tableHeaderView addSubview:view2];
+                         [view2 addGestureRecognizer:tapFlechas];
+                         
+                        
 
+                     }
+                     completion:^(BOOL finished){
+                         
+
+                         linea.backgroundColor=[UIColor blackColor];
+                         mas.hidden=FALSE;
+                        
+                         self.tableView.tableHeaderView.userInteractionEnabled = YES;
+                         UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc]
+                                                        initWithTarget:self action:@selector(handlePan:)];
+                         [pgr setMinimumNumberOfTouches:1];
+                         [pgr setMaximumNumberOfTouches:1];
+                         [pgr setDelegate:self];
+                         
+                         [self.tableView.tableHeaderView addGestureRecognizer:pgr];
+
+                         
+                         
+                         [self.tableView.tableHeaderView addSubview:flechas];
+                           _tableView.scrollEnabled=FALSE;
+                         [self.tableView.tableHeaderView addGestureRecognizer:_tapMapViewGesture];
+                         flechas.hidden=FALSE;
+                     }];
+    
+    
+}
+
+
+- (void)handleTapTableView:(UIGestureRecognizer *)gesture {
+    
+   // NSLog(@"push on the header");
+}
 
 
 -(int)respuestaObtenerEventos{
@@ -639,7 +711,8 @@
                           }];
     }
     else{
-      
+        isArrow=FALSE;
+        [self handleTapMapView:nil];
     }
     
 }
@@ -842,6 +915,7 @@ calloutAccessoryControlTapped:(UIControl *)control
     currentLatitud=[NSString stringWithFormat:@"%.8f", centre.latitude];
     currentLongitud=[NSString stringWithFormat:@"%.8f", centre.longitude];
     // guardamos el radio anteriot
+    
     [self obtenerEventos:centre.latitude Y:centre.longitude];
     
 }
@@ -961,7 +1035,7 @@ bucar_aqui.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blu
     CGFloat contentYoffset = scrollView.contentOffset.y;
    // NSLog(@"el y %f",contentYoffset);
     if (contentYoffset<0) {
-        
+            [self handleTapMapView:nil];
     }
     CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
     

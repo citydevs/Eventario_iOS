@@ -51,6 +51,8 @@
     //Vista de Loading que se presenta mientras se hace la peticion
     UIView *loading;
     UIActivityIndicatorView *spinner;
+    
+     CLLocationCoordinate2D posicionAux;
 }
 @synthesize mapa,LocationManager,eventos;
 
@@ -246,7 +248,7 @@
     
     //Copiamos el radio del delegado por default es  2000 metros
     radio=delegate.user_radio;//@"2000";
-    [self crearBarraBusqueda];
+    
     
     [mapa setDelegate:self];
     //obtenemos la ubicacion del usuario y centramos el mapa ahi
@@ -280,7 +282,10 @@
     [self crearLoadingView];
     
     //obtenemos los eventos
+    posicionAux.latitude=LocationManager.location.coordinate.latitude;
+    posicionAux.longitude=LocationManager.location.coordinate.longitude;
     [self obtenerEventos:LocationManager.location.coordinate.latitude Y:LocationManager.location.coordinate.longitude];
+    
     //iniciamos con la lista de evnetos oculta
  
     
@@ -318,18 +323,6 @@
     [self crearBuscaAqui];
 }
 
-
-
--(int)respuestaObtenerEventos{
-    if (!isEmpty) {
-        //si tiene evento
-        return 1;
-    }
-    else {
-        //no tiene eventos
-        return 0;
-    }
-}
 
 
 
@@ -377,7 +370,7 @@
                 
                 [self getMapa:latitud Y :longitud];
                 [self.tableView reloadData];
-                [self respuestaObtenerEventos];
+               
                 
             }
             else{
@@ -392,13 +385,10 @@
                 [self getMapa:latitud Y :longitud];
                 
                 [self.tableView reloadData];
-                [self respuestaObtenerEventos];
+              
                 
                 
             }
-            // [self respuetaObtenerEventos:1];
-            //[self getLista];
-            
         }
         else {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"Revisa tu conexión de internet y  vuelve a intentarlo. " delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
@@ -412,7 +402,7 @@
             [self.tableView reloadData];
             
             loading.hidden=TRUE;
-            [self respuestaObtenerEventos];
+            
         }
     });
     
@@ -869,6 +859,8 @@ calloutAccessoryControlTapped:(UIControl *)control
     currentLatitud=[NSString stringWithFormat:@"%.8f", centre.latitude];
     currentLongitud=[NSString stringWithFormat:@"%.8f", centre.longitude];
     // guardamos el radio anteriot
+    posicionAux.latitude=centre.latitude;
+    posicionAux.longitude=centre.longitude;
     [self obtenerEventos:centre.latitude Y:centre.longitude];
     
 }
@@ -888,62 +880,6 @@ calloutAccessoryControlTapped:(UIControl *)control
     [spinner startAnimating];
     [loading addSubview:spinner];
     [self.view addSubview:loading];
-    
-    
-}
-
--(void)crearBarraBusqueda{
-    //Crea contenedor de busqueda
-    contenedor_flotante=[[UIView alloc]initWithFrame:CGRectMake(5, 5, 310, 35)];
-    contenedor_flotante.backgroundColor=[UIColor blackColor];
-    vista_auxiliar=[[UIView alloc]initWithFrame:CGRectMake(1, 1, 308, 33)];
-    vista_auxiliar.backgroundColor=[UIColor whiteColor];
-    [contenedor_flotante addSubview:vista_auxiliar];
-    
-    
-    UIImageView *lupa=[[UIImageView alloc]initWithFrame:CGRectMake(7, 7, 15, 15)];
-    lupa.image=[UIImage imageNamed:@"lupa.png"];
-    [vista_auxiliar addSubview:lupa];
-    
-    buscar=[[UITextField alloc]initWithFrame:CGRectMake(37, 0, 205, 35)];
-    buscar.delegate = self;
-    buscar.placeholder=@"Zamora 54,Condesa,Cuahutemoc";
-    [buscar setFont:[UIFont systemFontOfSize:10]];
-    buscar.returnKeyType = UIReturnKeySearch;
-    
-    [vista_auxiliar addSubview:buscar];
-    
-    UIView * aux=[[UIView alloc]initWithFrame:CGRectMake(240, 0, 1, 34)];
-    aux.backgroundColor=[UIColor blackColor];
-    
-    encuentrame = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [encuentrame addTarget:self
-                    action:@selector(getCurrentLocation:)
-          forControlEvents:UIControlEventTouchUpInside];
-    encuentrame.frame = CGRectMake(240, 0, 35, 35);
-    UIImage *btnImage = [UIImage imageNamed:@"flecha2.png"];
-    UIImageView *img=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, encuentrame.frame.size.width, encuentrame.frame.size.height)];
-    img.image=btnImage;
-    [encuentrame setBackgroundImage:btnImage forState:UIControlStateNormal];
-    //[encuentrame addSubview:img];
-    
-    UIView * aux2=[[UIView alloc]initWithFrame:CGRectMake(275, 0, 1, 34)];
-    aux2.backgroundColor=[UIColor blackColor];
-    herramientas = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [herramientas addTarget:self
-                     action:@selector(opcciones:)
-           forControlEvents:UIControlEventTouchUpInside];
-    herramientas.frame = CGRectMake(275, 0, 35, 35);
-    UIImage *btnImage2 = [UIImage imageNamed:@"tools.png"];
-    UIImageView *img2=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, herramientas.frame.size.width, herramientas.frame.size.height)];
-    [herramientas setBackgroundImage:btnImage2 forState:UIControlStateNormal];
-    //img2.image=btnImage2;
-    [herramientas addSubview:img2];
-    [vista_auxiliar addSubview:aux2];
-    [vista_auxiliar addSubview:aux];
-    [vista_auxiliar addSubview:encuentrame];
-    [vista_auxiliar addSubview:herramientas];
-    //Termina contenedor de busqueda
     
     
 }
@@ -1108,7 +1044,15 @@ calloutAccessoryControlTapped:(UIControl *)control
     if(a.tag==0){
     
         eventos=_original;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos cercanos a ti, intenta ampliando el radio de búsqueda" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
     }
     else if (a.tag==1)
     {
@@ -1127,7 +1071,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         
     }
     
@@ -1148,7 +1100,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         }
     
     else if (a.tag==3)
@@ -1160,7 +1120,7 @@ calloutAccessoryControlTapped:(UIControl *)control
         for (int i=0; i<[eventos count]; i++) {
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
-            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Aprendizaje"] ) {
+            if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Infantiles"] ) {
                 
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
@@ -1168,7 +1128,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
     }
     
     else if (a.tag==4)
@@ -1188,7 +1156,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         
     }
     else if (a.tag==5)
@@ -1208,7 +1184,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
       
     }
     else if (a.tag==6)
@@ -1228,7 +1212,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         
     }
     else if (a.tag==7)
@@ -1248,7 +1240,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         
     }
     else if (a.tag==8)
@@ -1268,7 +1268,15 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
-        [self.tableView reloadData];
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
+            [self.tableView reloadData];
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
         
     }
     else if (a.tag==9)
@@ -1288,14 +1296,20 @@ calloutAccessoryControlTapped:(UIControl *)control
         }
         eventos=nil;
         eventos=filtrados;
+        if ([eventos count]==0) {
+            UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+            [alerta show];
+        }
+        else{
         [self.tableView reloadData];
-        
+            //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
+            [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
+        }
     
     }
     
-    //hay que actualizae el mapa tambien
-    //[self getMapa:latitud Y :longitud];
-}
+   
+     }
 
 
 @end

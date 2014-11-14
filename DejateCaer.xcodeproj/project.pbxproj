@@ -84,6 +84,7 @@
 		F3C680BA18FCCD870092D6D8 /* arrows2.png in Resources */ = {isa = PBXBuildFile; fileRef = F3C680B918FCCD870092D6D8 /* arrows2.png */; };
 		F3C680BD18FCD4440092D6D8 /* CustomCalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C680BC18FCD4440092D6D8 /* CustomCalloutAnnotation.m */; };
 		F3C680BF18FCD6520092D6D8 /* CustomCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3C680BE18FCD6520092D6D8 /* CustomCallOutView.xib */; };
+		F3CF5DF81A15BCB700092E07 /* FututroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF5DF71A15BCB700092E07 /* FututroViewController.m */; };
 		F3CF6EB0190ACEA4003E86EA /* ViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CF6EAF190ACEA4003E86EA /* ViewControllerTest.m */; };
 		F3CF6EB4190EC998003E86EA /* mas.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF6EB3190EC998003E86EA /* mas.png */; };
 		F3CF6EB8190ECBBC003E86EA /* flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CF6EB6190ECBBC003E86EA /* flecha.png */; };
@@ -228,6 +229,12 @@
 		F3C680BB18FCD4440092D6D8 /* CustomCalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutAnnotation.h; path = DejateCaer/CustomCalloutAnnotation.h; sourceTree = "<group>"; };
 		F3C680BC18FCD4440092D6D8 /* CustomCalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutAnnotation.m; path = DejateCaer/CustomCalloutAnnotation.m; sourceTree = "<group>"; };
 		F3C680BE18FCD6520092D6D8 /* CustomCallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCallOutView.xib; sourceTree = "<group>"; };
+		F3CF5DEF1A1592D700092E07 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		F3CF5DF21A15939E00092E07 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		F3CF5DF31A15944000092E07 /* Georgia Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Georgia Italic.ttf"; sourceTree = "<group>"; };
+		F3CF5DF41A15944E00092E07 /* Georgia Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Georgia Bold Italic.ttf"; sourceTree = "<group>"; };
+		F3CF5DF61A15BCB700092E07 /* FututroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FututroViewController.h; sourceTree = "<group>"; };
+		F3CF5DF71A15BCB700092E07 /* FututroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FututroViewController.m; sourceTree = "<group>"; };
 		F3CF6EAF190ACEA4003E86EA /* ViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerTest.m; path = ../DejateCaer/ViewControllerTest.m; sourceTree = "<group>"; };
 		F3CF6EB1190AD92B003E86EA /* ViewController_ViewControllerClassExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController_ViewControllerClassExtension.h; path = ../DejateCaer/ViewController_ViewControllerClassExtension.h; sourceTree = "<group>"; };
 		F3CF6EB3190EC998003E86EA /* mas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mas.png; sourceTree = "<group>"; };
@@ -295,6 +302,8 @@
 		F332E82818D161BA00DF538D = {
 			isa = PBXGroup;
 			children = (
+				F3CF5DF61A15BCB700092E07 /* FututroViewController.h */,
+				F3CF5DF71A15BCB700092E07 /* FututroViewController.m */,
 				F332E83A18D161BA00DF538D /* DejateCaer */,
 				F332E85C18D161BA00DF538D /* DejateCaerTests */,
 				F332E83318D161BA00DF538D /* Frameworks */,
@@ -354,6 +363,8 @@
 		F332E83B18D161BA00DF538D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F3CF5DF51A15945B00092E07 /* Georgia Italic */,
+				F3CF5DF11A1592F300092E07 /* OpenSans */,
 				F3C680A818FC9ADC0092D6D8 /* NII Sans */,
 				F332E83C18D161BA00DF538D /* DejateCaer-Info.plist */,
 				F332E83D18D161BA00DF538D /* InfoPlist.strings */,
@@ -513,6 +524,25 @@
 				F3C680AB18FC9ADC0092D6D8 /* NIISansLight.ttf */,
 			);
 			path = "NII Sans";
+			sourceTree = "<group>";
+		};
+		F3CF5DF11A1592F300092E07 /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				F3CF5DEF1A1592D700092E07 /* OpenSans-Regular.ttf */,
+				F3CF5DF21A15939E00092E07 /* OpenSans-Bold.ttf */,
+			);
+			name = OpenSans;
+			path = "NII Sans";
+			sourceTree = "<group>";
+		};
+		F3CF5DF51A15945B00092E07 /* Georgia Italic */ = {
+			isa = PBXGroup;
+			children = (
+				F3CF5DF31A15944000092E07 /* Georgia Italic.ttf */,
+				F3CF5DF41A15944E00092E07 /* Georgia Bold Italic.ttf */,
+			);
+			name = "Georgia Italic";
 			sourceTree = "<group>";
 		};
 		F3CF6EAD190ACE37003E86EA /* Modelos */ = {
@@ -750,6 +780,7 @@
 				F365215E1A0FEFF000DFD69B /* UIColor+expanded.m in Sources */,
 				F3A9AF561927067700E0F3F1 /* MapaViewController.m in Sources */,
 				F332E87218D16CB100DF538D /* eventCell.m in Sources */,
+				F3CF5DF81A15BCB700092E07 /* FututroViewController.m in Sources */,
 				F3B9EC4318EF2D7900204323 /* Opcciones.m in Sources */,
 				F3C680BD18FCD4440092D6D8 /* CustomCalloutAnnotation.m in Sources */,
 				F365215A1A0FEFF000DFD69B /* VRGCalendarView.m in Sources */,
