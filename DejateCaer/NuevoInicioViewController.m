@@ -1074,6 +1074,13 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
         }
         else{
             [self.tableView reloadData];
@@ -1103,6 +1110,13 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
         }
         else{
             [self.tableView reloadData];
@@ -1131,6 +1145,14 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
+
         }
         else{
             [self.tableView reloadData];
@@ -1159,6 +1181,13 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
         }
         else{
             [self.tableView reloadData];
@@ -1187,6 +1216,12 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
         }
         else{
             [self.tableView reloadData];
@@ -1215,6 +1250,13 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
         }
         else{
             [self.tableView reloadData];
@@ -1243,6 +1285,13 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
         }
         else{
             [self.tableView reloadData];
@@ -1271,6 +1320,14 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+
+
         }
         else{
             [self.tableView reloadData];
@@ -1299,6 +1356,14 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos de esta categoría cerca de ti , intenta con otra categoría" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+            eventos=_original;
+            @autoreleasepool {
+                UIButton *a=[UIButton alloc];
+                a.tag=0;
+                [self filtrar:a];
+            }
+            
+
         }
         else{
         [self.tableView reloadData];

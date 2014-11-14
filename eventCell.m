@@ -44,7 +44,7 @@
                 [self   addSubview:_hora];
        
         _distancia=[[UILabel alloc]initWithFrame:CGRectMake(260, 60, 70, 34)];
-        _distancia.text=@"300 m";
+        _distancia.text=@"";
         _distancia.textColor=[UIColor grayColor];//[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];
         // [_distancia setFont:[UIFont systemFontOfSize:14]];
         [_distancia setFont:[UIFont fontWithName:@"NIISans" size:12]];

@@ -35,8 +35,7 @@
     
     
     loading=[[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-25, self.view.frame.size.height/2 -50, 50, 50)];
-    loading.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(23/255.0) blue:(52/255.0) alpha:0.8];
-    // loading.alpha=0.8;
+    loading.backgroundColor=[UIColor colorWithRed:(7/255.0) green:(104/255.0) blue:(239/255.0) alpha:1];    // loading.alpha=0.8;
     loading.layer.cornerRadius = 5;
     loading.layer.masksToBounds = YES;
     
