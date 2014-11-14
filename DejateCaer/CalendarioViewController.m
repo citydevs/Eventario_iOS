@@ -7,6 +7,7 @@
 //
 
 #import "CalendarioViewController.h"
+#import "FututroViewController.h"
 
 @interface CalendarioViewController ()
 
@@ -63,11 +64,19 @@
     df.dateStyle = NSDateFormatterMediumStyle;
     NSLog(@"%@", [NSString stringWithFormat:@"%@",
                   [df stringFromDate:date]]);
-    //fechaFutura=[NSString stringWithFormat:@"%@",
-               //  [df stringFromDate:date]];
-    
+    NSString *fecha =[NSString stringWithFormat:@"%@",
+                [df stringFromDate:date]];
+    NSArray *aux = [fecha componentsSeparatedByString:@"/"];
+    fecha=[NSString stringWithFormat:@"%@/%@/%@",[aux objectAtIndex:2],[aux objectAtIndex:1],[aux objectAtIndex:0]];
     //[self futuro:nil];
+    FututroViewController *futuro;
+    futuro= [[self storyboard] instantiateViewControllerWithIdentifier:@"futuro"];
+    futuro.fecha=fecha;
+    futuro.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    // [self.navigationController pushViewController:detalles animated:YES];
     
+    
+    [self presentViewController:futuro animated:YES completion:NULL];
 }
 
 /*

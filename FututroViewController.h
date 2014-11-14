@@ -18,6 +18,7 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)   NSArray *eventos;
 @property (nonatomic,strong)   NSArray *original;
+@property (nonatomic,strong)   NSString *fecha;
 
 
 
