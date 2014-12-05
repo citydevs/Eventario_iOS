@@ -118,9 +118,15 @@
     LocationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     LocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     [LocationManager startUpdatingLocation];
-    [LocationManager requestWhenInUseAuthorization];
-    [LocationManager requestAlwaysAuthorization];
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
+        [LocationManager requestWhenInUseAuthorization];
+        [LocationManager requestAlwaysAuthorization];
+    }
+#endif
     
+
     
     
     
@@ -476,18 +482,18 @@
     if (!isEmpty) {
         
         DescripcionViewController *detalles;//=[[DescripcionViewController alloc]init];
-        if ([delegate.alto intValue] < 568)
+       /* if ([delegate.alto intValue] < 568)
         {
             detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion2"];
             
         }
         
         else
-        {
+        {*/
             
             detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
             
-        }
+   //     }
    
         
     
@@ -845,18 +851,18 @@ calloutAccessoryControlTapped:(UIControl *)control
     
     
     DescripcionViewController *detalles;//=[[DescripcionViewController alloc]init];
-    if ([delegate.alto intValue] < 568)
+   /* if ([delegate.alto intValue] < 568)
     {
         detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion2"];
         
     }
     
     else
-    {
+    {*/
         
         detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
         
-    }
+    //}
     
     // detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
     detalles.evento=[eventos objectAtIndex:view.tag];

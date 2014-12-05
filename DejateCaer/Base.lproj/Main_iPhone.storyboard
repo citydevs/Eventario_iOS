@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZVH-mO-vRS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZVH-mO-vRS">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -44,160 +48,6 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-YS-euE">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evk-Zi-E1e">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88Q-4a-ccD">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
-                                                <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Evento de las Mil Maravillas del Mundo" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWf-sm-mrI">
-                                                        <rect key="frame" x="45" y="63" width="265" height="20"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="titulo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Grm-xF-mMk">
-                                                        <rect key="frame" x="17" y="63" width="20" height="20"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOB-pP-dfe">
-                                                        <rect key="frame" x="50" y="12" width="111" height="22"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <color key="textColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hora.png" translatesAutoresizingMaskIntoConstraints="NO" id="FGJ-FD-drT">
-                                                        <rect key="frame" x="17" y="167" width="20" height="20"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" 9:00 - 10:00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJM-Oj-bqe">
-                                                        <rect key="frame" x="42" y="166" width="84" height="22"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendario.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Xc-Im-2cV">
-                                                        <rect key="frame" x="130" y="166" width="22" height="20"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014-03-13 a 2014-02-23" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS7-8Z-Paa">
-                                                        <rect key="frame" x="156" y="167" width="149" height="22"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kua-8c-D4g">
-                                                        <rect key="frame" x="17" y="45" width="303" height="1"/>
-                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x6a-aa-LRP">
-                                                        <rect key="frame" x="17" y="137" width="303" height="1"/>
-                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMo-fT-r7s">
-                                                        <rect key="frame" x="275" y="9" width="25" height="25"/>
-                                                        <state key="normal" image="twitter1.png">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="twittear:" destination="TNA-jl-Jhe" eventType="touchDown" id="wgQ-xw-c8g"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HE-3g-vCg">
-                                                        <rect key="frame" x="230" y="9" width="25" height="25"/>
-                                                        <state key="normal" title="FB" image="facebook1.png">
-                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="postToFacebook:" destination="TNA-jl-Jhe" eventType="touchDown" id="u6G-GT-UPd"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cine.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fpx-VQ-2dS">
-                                                        <rect key="frame" x="17" y="10" width="25" height="25"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0OT-06-Wdu">
-                                                <rect key="frame" x="0.0" y="437" width="320" height="67"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEw-6O-8VE">
-                                                        <rect key="frame" x="-3" y="0.0" width="325" height="1"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mys-nl-TzQ">
-                                                        <rect key="frame" x="105" y="15" width="37" height="37"/>
-                                                        <state key="normal" backgroundImage="informacion1.png"/>
-                                                        <connections>
-                                                            <action selector="resena:" destination="TNA-jl-Jhe" eventType="touchDown" id="We6-D5-FZi"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-jx-QY8">
-                                                        <rect key="frame" x="178" y="15" width="37" height="37"/>
-                                                        <state key="normal" title="Button" image="telefono1.png">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="contacto:" destination="TNA-jl-Jhe" eventType="touchDown" id="eRN-8d-iGT"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXg-5h-4t7">
-                                                        <rect key="frame" x="251" y="15" width="37" height="37"/>
-                                                        <state key="normal" title="Button" image="web1.png">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="web:" destination="TNA-jl-Jhe" eventType="touchDown" id="GFF-np-5nW"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2R-lh-SPA">
-                                                        <rect key="frame" x="32" y="15" width="37" height="37"/>
-                                                        <state key="normal" title="Button" image="dinero1.png">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="precio:" destination="TNA-jl-Jhe" eventType="touchDown" id="qDa-ul-aDQ"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.95246731510000004" green="0.098302434679999995" blue="0.2228135121" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uyx-cQ-68S">
-                                        <rect key="frame" x="0.0" y="216" width="320" height="221"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTE-Up-OAJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAB-7g-kSl">
-                                                        <rect key="frame" x="17" y="109" width="182" height="1"/>
-                                                        <color key="backgroundColor" red="0.027450980390000001" green="0.40784313729999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nombre.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-xq-XuK">
-                                                        <rect key="frame" x="17" y="44" width="20" height="20"/>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avenida. Juan Escutia, Esquina con Mazatlan, Colonia Condesa, Delegacion Cuahutemoc, D.F." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-tF-c19">
-                                                        <rect key="frame" x="45" y="124" width="144" height="68"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IFz-qo-ryr">
-                                                        <rect key="frame" x="199" y="-1" width="121" height="222"/>
-                                                    </mapView>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XuV-CT-RsX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="1"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </view>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="El Patio de mi casa, es particular" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNx-IM-wXr">
-                                                        <rect key="frame" x="47" y="28" width="144" height="51"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.85032684950000004" green="0.85032684950000004" blue="0.85032684950000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.1960784495" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="wfK-jW-gtP" id="Jkt-HL-evI"/>
@@ -206,12 +56,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lh8-Cl-Khm">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Evento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lu-xB-Ldn">
-                                        <rect key="frame" x="122" y="30" width="76" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13T-pt-IKT">
                                         <rect key="frame" x="15" y="20" width="40" height="44"/>
                                         <state key="normal" image="back2.png">
@@ -221,6 +65,31 @@
                                             <action selector="regresar:" destination="TNA-jl-Jhe" eventType="touchDown" id="Jh4-uf-G17"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMo-fT-r7s">
+                                        <rect key="frame" x="279" y="29" width="25" height="25"/>
+                                        <state key="normal" image="twitter1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="twittear:" destination="TNA-jl-Jhe" eventType="touchDown" id="wgQ-xw-c8g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HE-3g-vCg">
+                                        <rect key="frame" x="234" y="29" width="25" height="25"/>
+                                        <state key="normal" title="FB" image="facebook1.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="postToFacebook:" destination="TNA-jl-Jhe" eventType="touchDown" id="u6G-GT-UPd"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Evento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lu-xB-Ldn">
+                                        <rect key="frame" x="122" y="30" width="76" height="24"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.027450980392156862" green="0.40784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -231,22 +100,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="btnContacto" destination="RZd-jx-QY8" id="N2h-SU-KUS"/>
-                        <outlet property="btnPrecio" destination="P2R-lh-SPA" id="zHc-xx-FGO"/>
-                        <outlet property="btnResena" destination="Mys-nl-TzQ" id="kQp-Cd-Q3j"/>
-                        <outlet property="btnWeb" destination="QXg-5h-4t7" id="PjX-xx-TZ2"/>
-                        <outlet property="categoria" destination="IOB-pP-dfe" id="6eH-Xn-Ry5"/>
-                        <outlet property="direccion" destination="CZ9-tF-c19" id="BkU-A2-wms"/>
-                        <outlet property="fecha" destination="QS7-8Z-Paa" id="LNf-eo-TNd"/>
-                        <outlet property="horario" destination="zJM-Oj-bqe" id="Fxp-kU-NnO"/>
-                        <outlet property="img_cat" destination="Fpx-VQ-2dS" id="GqM-yz-ApF"/>
-                        <outlet property="lugar" destination="pNx-IM-wXr" id="fT5-nw-r3e"/>
-                        <outlet property="mapa" destination="IFz-qo-ryr" id="eW1-kt-U6t"/>
-                        <outlet property="nombre" destination="WWf-sm-mrI" id="ZNb-pa-i4u"/>
                         <outlet property="scrollView" destination="gtB-YS-euE" id="cNK-8j-Afa"/>
-                        <outlet property="vistaaux1" destination="0OT-06-Wdu" id="dNH-32-zQI"/>
-                        <outlet property="vistaaux2" destination="Uyx-cQ-68S" id="OSF-uT-gv5"/>
-                        <outlet property="vistaaux3" destination="88Q-4a-ccD" id="XeP-sV-MB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1UU-u3-XOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -886,7 +740,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5z6-lv-a0s">
                                                         <rect key="frame" x="32" y="15" width="37" height="37"/>
-                                                        <state key="normal" title="Button" image="dinero1.png">
+                                                        <state key="normal" title="Button" image="dinero0.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -1065,7 +919,7 @@
         <image name="aquiTab.png" width="32" height="32"/>
         <image name="back2.png" width="500" height="500"/>
         <image name="calendario.png" width="195" height="191"/>
-        <image name="dinero1.png" width="195" height="191"/>
+        <image name="dinero0.png" width="195" height="191"/>
         <image name="eventario.png" width="315" height="43"/>
         <image name="facebook1.png" width="51" height="51"/>
         <image name="hora.png" width="195" height="191"/>
