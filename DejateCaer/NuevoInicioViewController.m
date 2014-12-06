@@ -85,7 +85,7 @@
     [buscame setImage:[UIImage imageNamed:@"flecha.png"]  forState:UIControlStateNormal];
     buscame.frame = CGRectMake(mapa.frame.size.width-30, mapa.frame.size.height-30, 30, 30);
     buscame.backgroundColor=[UIColor clearColor];
-
+    [mapa setShowsPointsOfInterest:FALSE];
     [mapa addSubview:buscame];
     
     UIButton *todos = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -1054,9 +1054,11 @@ calloutAccessoryControlTapped:(UIControl *)control
         if ([eventos count]==0) {
             UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No encontramos eventos cercanos a ti, intenta ampliando el radio de búsqueda" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
             [alerta show];
+             _categories.text=@"Sin Eventos";
         }
         else{
             [self.tableView reloadData];
+            _categories.text=@"Todos";
             //hay que actualizae el mapa tambien falta pasar lo parametros de donde hará zoom el usuario
             [self getMapa:posicionAux.latitude Y :posicionAux.longitude];
         }
@@ -1071,7 +1073,7 @@ calloutAccessoryControlTapped:(UIControl *)control
         // buscamos en todo el array de eventos la categoria para ir filtrantodolos
         
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Cine"] ) {
-            
+             _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
             [filtrados addObject:[eventos objectAtIndex:i]];
             }
 
@@ -1107,7 +1109,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Teatro"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1142,7 +1144,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Infantiles"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1178,7 +1180,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Cultura"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1213,7 +1215,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Música"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1247,7 +1249,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Aprendizaje"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1282,7 +1284,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Tecnología"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1317,7 +1319,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Exposiciones"] ) {
-                
+                 _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             
@@ -1353,7 +1355,7 @@ calloutAccessoryControlTapped:(UIControl *)control
             // buscamos en todo el array de eventos la categoria para ir filtrantodolos
             
             if ([ [[eventos objectAtIndex:i]   objectForKey:@"categoria"] isEqualToString:@"Deportivo"] ) {
-                
+                _categories.text=[[eventos objectAtIndex:i]   objectForKey:@"categoria"];
                 [filtrados addObject:[eventos objectAtIndex:i]];
             }
             

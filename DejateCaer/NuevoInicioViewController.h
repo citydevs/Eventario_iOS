@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapa;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)   NSArray *eventos;
+@property (weak, nonatomic) IBOutlet UILabel *categories;
 @property (nonatomic,strong)   NSArray *original;
 
 
