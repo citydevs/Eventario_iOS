@@ -17,6 +17,11 @@
     AppDelegate *delegate;
     double radio;
 }
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     
     

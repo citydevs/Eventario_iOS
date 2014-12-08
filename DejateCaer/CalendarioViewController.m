@@ -14,6 +14,10 @@
 @end
 
 @implementation CalendarioViewController
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewDidLoad {
     

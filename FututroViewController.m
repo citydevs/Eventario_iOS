@@ -334,12 +334,10 @@
     //obtenemos la posicion del usuario
     currentLatitud=[NSString stringWithFormat:@"%.8f", latitud];
     currentLongitud=[NSString stringWithFormat:@"%.8f", longitud];
-    radio=delegate.user_radio;
-    // guardamos el radio anteriot
-    radio_anterior=radio;
-    //http://eventario.mx/eventos.json?fecha=2014-10-08
+   //http://eventario.mx/eventos.json?fecha=2014-10-08
+    //http://eventario.mx/eventos.json?fecha=2014/12/08&lon=-103.346925807&lat=20.676203715886&dist=20
     NSString *urlString =@"http://eventario.mx/eventos.json";
-    NSString *url=[NSString stringWithFormat:@"%@?fecha=%@",urlString,_fecha];
+    NSString *url=[NSString stringWithFormat:@"%@?fecha=%@&lon=%@&lat=%@&dist=20",urlString,_fecha,[NSString stringWithFormat:@"%.8f", longitud],[NSString stringWithFormat:@"%.8f", latitud]];
     // NSString *url=@"http://dev.codigo.labplc.mx/EventarioWeb/eventos.json";
     NSLog(@"%@",url);
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -1037,7 +1035,7 @@ calloutAccessoryControlTapped:(UIControl *)control
 }
 -(void)viewDidAppear:(BOOL)animated{
     
-    [self viewDidLoad];
+    
 }
 
 -(IBAction)filtrar:(id)sender{

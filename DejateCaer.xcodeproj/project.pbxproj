@@ -26,6 +26,7 @@
 		F30A68901A3259D700F3DA61 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F30A687D1A3259D700F3DA61 /* Lato-Thin.ttf */; };
 		F30A68911A3259D700F3DA61 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F30A687E1A3259D700F3DA61 /* Lato-ThinItalic.ttf */; };
 		F30A68921A3259D700F3DA61 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = F30A687F1A3259D700F3DA61 /* SIL Open Font License.txt */; };
+		F30A68941A33634900F3DA61 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = F30A68931A33634900F3DA61 /* share.png */; };
 		F312730A192ABEBB002E4119 /* ResenaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3127309192ABEBB002E4119 /* ResenaViewController.m */; };
 		F324E8241947CA390002A6FB /* Teatro.png in Resources */ = {isa = PBXBuildFile; fileRef = F324E8231947CA390002A6FB /* Teatro.png */; };
 		F32CF00618F5A9220098A5CF /* flechas.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF00518F5A9220098A5CF /* flechas.xib */; };
@@ -160,6 +161,7 @@
 		F30A687D1A3259D700F3DA61 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		F30A687E1A3259D700F3DA61 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		F30A687F1A3259D700F3DA61 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		F30A68931A33634900F3DA61 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		F3127308192ABEBB002E4119 /* ResenaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResenaViewController.h; sourceTree = "<group>"; };
 		F3127309192ABEBB002E4119 /* ResenaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResenaViewController.m; sourceTree = "<group>"; };
 		F324E8231947CA390002A6FB /* Teatro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teatro.png; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			children = (
 				F3CF5DF61A15BCB700092E07 /* FututroViewController.h */,
 				F3CF5DF71A15BCB700092E07 /* FututroViewController.m */,
+				F30A68931A33634900F3DA61 /* share.png */,
 				F332E83A18D161BA00DF538D /* DejateCaer */,
 				F332E85C18D161BA00DF538D /* DejateCaerTests */,
 				F332E83318D161BA00DF538D /* Frameworks */,
@@ -824,6 +827,7 @@
 				F342E0D1193E663B00A4FF4E /* tools.png in Resources */,
 				F36521471A0FECB000DFD69B /* aquiTab.png in Resources */,
 				F3C680B518FCA9520092D6D8 /* icono58.png in Resources */,
+				F30A68941A33634900F3DA61 /* share.png in Resources */,
 				F30A68901A3259D700F3DA61 /* Lato-Thin.ttf in Resources */,
 				F30A68921A3259D700F3DA61 /* SIL Open Font License.txt in Resources */,
 				F32CF01818F5F5AF0098A5CF /* flechas_cierran.xib in Resources */,

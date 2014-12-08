@@ -1041,8 +1041,7 @@ calloutAccessoryControlTapped:(UIControl *)control
 }
 -(void)viewDidAppear:(BOOL)animated{
 
-    [self viewDidLoad];
-}
+    }
 
 -(IBAction)filtrar:(id)sender{
     UIButton *a=(UIButton *)sender;

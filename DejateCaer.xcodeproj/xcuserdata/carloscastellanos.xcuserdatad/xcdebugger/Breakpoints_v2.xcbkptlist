@@ -408,11 +408,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/DescripcionViewController.m"
-            timestampString = "439515944.141347"
+            timestampString = "439575659.155891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "-web:"
             landmarkType = "5">
          </BreakpointContent>
@@ -584,11 +584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1213"
-            endingLineNumber = "1213"
+            startingLineNumber = "1212"
+            endingLineNumber = "1212"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -600,11 +600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1209"
-            endingLineNumber = "1209"
+            startingLineNumber = "1208"
+            endingLineNumber = "1208"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -616,11 +616,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1207"
-            endingLineNumber = "1207"
+            startingLineNumber = "1206"
+            endingLineNumber = "1206"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -664,11 +664,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1190"
-            endingLineNumber = "1190"
+            startingLineNumber = "1189"
+            endingLineNumber = "1189"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -680,11 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1351"
-            endingLineNumber = "1351"
+            startingLineNumber = "1350"
+            endingLineNumber = "1350"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -712,11 +712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "439517508.84077"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1363"
-            endingLineNumber = "1363"
+            startingLineNumber = "1362"
+            endingLineNumber = "1362"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>
@@ -728,11 +728,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DejateCaer/NuevoInicioViewController.m"
-            timestampString = "438284292.877217"
+            timestampString = "439573377.059305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1048"
-            endingLineNumber = "1048"
+            startingLineNumber = "1047"
+            endingLineNumber = "1047"
             landmarkName = "-filtrar:"
             landmarkType = "5">
          </BreakpointContent>

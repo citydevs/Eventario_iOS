@@ -31,8 +31,7 @@
 
 
 -(IBAction)regresar:(id)sender;
--(IBAction)twittear:(id)sender;
-- (IBAction)postToFacebook:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

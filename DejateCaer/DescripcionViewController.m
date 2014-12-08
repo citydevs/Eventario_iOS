@@ -70,7 +70,7 @@
 
 {
     
-     self.screenName = @"Descripción de Evento";
+     self.screenName = [_evento objectForKey:@"nombre"];
     
  
   
@@ -338,40 +338,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)twittear:(id)sender
-{
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        NSString *cuerpo=[NSString stringWithFormat:@"Me gusta el evento:%@  @EventarioCDMX #EventarioApp %@",[_evento objectForKey:@"nombre"],[_evento objectForKey:@"url"]];
-        [tweetSheet setInitialText:cuerpo];
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
+-(IBAction)compartir:(id)sender{
     
-    else{
+    NSString *url=[NSString stringWithFormat:@"Me gusta el evento:%@  @EventarioCDMX %@",[_evento objectForKey:@"nombre"],[_evento objectForKey:@"url"]];
     
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No tiene una cuenta de Twitter configurada. Configurala en Ajustes -> Twitter -> Añadir Cuenta" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
-        [alert show];
+    NSArray *objectsToShare = [NSArray arrayWithObjects:url, nil];
     
-    }
+    UIActivityViewController *compatir=[[UIActivityViewController alloc]initWithActivityItems:objectsToShare applicationActivities:nil];
+    [self presentViewController:compatir animated:YES completion:nil];
+    
+    
+    
+    
 }
-- (IBAction)postToFacebook:(id)sender {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        [controller setInitialText:[NSString stringWithFormat:@"Me gusta el evento:%@. #EventarioApp  #EventarioCDMX %@",[_evento objectForKey:@"nombre"],[_evento objectForKey:@"url"]]];
-        [self presentViewController:controller animated:YES completion:Nil];
-    }
-    
-    else{
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Mensaje" message:@"No tiene una cuenta de Facebook configurada. Configurala en Ajustes -> Facebook -> Añadir Cuenta" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-}
-
 #pragma mark - MapView Delegate
 
 - (MKAnnotationView *) mapView: (MKMapView *) mapView viewForAnnotation: (id<MKAnnotation>) annotation {
