@@ -37,7 +37,8 @@
     
     
     
-    UILabel *instruccions=[[UILabel alloc]initWithFrame:CGRectMake(50, 65, 220, 80)];
+    UILabel *instruccions=[[UILabel alloc]initWithFrame:CGRectMake(50, 30
+                                                                   , 220, 80)];
     instruccions.text=@"Selecciona un día en el calendario para poder ver los eventos que ocurrirán en esa fecha";
     instruccions.font=[UIFont systemFontOfSize:12];
     instruccions.numberOfLines=5;

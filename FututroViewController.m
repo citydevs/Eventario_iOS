@@ -260,8 +260,16 @@
     LocationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     LocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     [LocationManager startUpdatingLocation];
-    [LocationManager requestWhenInUseAuthorization];
-    [LocationManager requestAlwaysAuthorization];
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
+        [LocationManager requestWhenInUseAuthorization];
+        [LocationManager requestAlwaysAuthorization];
+    }
+#endif
+    
+    //[LocationManager requestWhenInUseAuthorization];
+    //[LocationManager requestAlwaysAuthorization];
     
     
     

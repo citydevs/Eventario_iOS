@@ -520,7 +520,7 @@
     if (!isEmpty) {
         
         DescripcionViewController *detalles;//=[[DescripcionViewController alloc]init];
-        if ([delegate.alto intValue] < 568)
+       /* if ([delegate.alto intValue] < 568)
         {
             detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion2"];
             
@@ -528,10 +528,10 @@
         
         else
         {
-            
+*/
             detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
             
-        }
+  //      }
         
         
         
@@ -796,18 +796,18 @@ calloutAccessoryControlTapped:(UIControl *)control
     
     
     DescripcionViewController *detalles;//=[[DescripcionViewController alloc]init];
-    if ([delegate.alto intValue] < 568)
+  /*  if ([delegate.alto intValue] < 568)
     {
         detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion2"];
         
     }
     
     else
-    {
+    {*/
         
         detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
         
-    }
+    //}
     
     // detalles = [[self storyboard] instantiateViewControllerWithIdentifier:@"descripcion"];
     detalles.evento=[eventos objectAtIndex:view.tag];

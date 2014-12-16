@@ -204,13 +204,13 @@
     
    
     // agrego la direccion debajo del venue
-    direccion=[[UILabel alloc]initWithFrame:CGRectMake(50, lugar.frame.size.height+lugar.frame.origin.y +5, 250, 50)];
+    direccion=[[UILabel alloc]initWithFrame:CGRectMake(20, lugar.frame.size.height+lugar.frame.origin.y +5, 250, 50)];
     direccion.text=[_evento objectForKey:@"direccion"];
     [direccion setFont:[UIFont fontWithName:@"Lato-Bold" size:15]];
     direccion.numberOfLines=5;
     direccion.textColor=[UIColor colorWithRed:(108/255.0) green:(108/255.0) blue:(108/255.0) alpha:1];
     [direccion sizeToFit];
-    direccion.frame=CGRectMake(50, lugar.frame.size.height+lugar.frame.origin.y +5, 250, direccion.frame.size.height);
+    direccion.frame=CGRectMake(20, lugar.frame.size.height+lugar.frame.origin.y +5, 250, direccion.frame.size.height);
     
     
     [_scrollView addSubview:direccion];
@@ -241,13 +241,13 @@
     }
     else{
     // si tiene un contacto
-        UILabel* contacto=[[UILabel alloc]initWithFrame:CGRectMake(50, direccion.frame.size.height+direccion.frame.origin.y +5, 300, 50)];
+        UILabel* contacto=[[UILabel alloc]initWithFrame:CGRectMake(20, direccion.frame.size.height+direccion.frame.origin.y +5, 300, 50)];
         [contacto setFont:[UIFont fontWithName:@"Lato-Bold" size:15]];
         contacto.numberOfLines=5;
         contacto.text=[_evento objectForKey:@"contacto"];
         contacto.textColor=[UIColor colorWithRed:(108/255.0) green:(108/255.0) blue:(108/255.0) alpha:1];
         [contacto sizeToFit];
-        contacto.frame=CGRectMake(50, direccion.frame.size.height+direccion.frame.origin.y +5, 300, contacto.frame.size.height);
+        contacto.frame=CGRectMake(20, direccion.frame.size.height+direccion.frame.origin.y +5, 300, contacto.frame.size.height);
         [_scrollView addSubview:contacto];
         topMapa=contacto.frame.size.height+contacto.frame.origin.y +5;
         
@@ -298,6 +298,10 @@
   //despues del mapa
     descripcion=[[UITextView alloc]initWithFrame:CGRectMake(20, 0, 280, 100)];
     descripcion.editable=FALSE;
+    descripcion.scrollEnabled=FALSE;
+    [descripcion setFont:[UIFont fontWithName:@"Lato-Bold" size:14]];
+    descripcion.textContainer.lineFragmentPadding = 1.0;
+
     descripcion.text=[_evento objectForKey:@"descripcion"];
     [descripcion sizeToFit];
     if ([[_evento objectForKey:@"precio"] isEqualToString:@"No disponible"]) {
@@ -312,13 +316,25 @@
         precio.text=[_evento objectForKey:@"precio"];
         [precio setFont:[UIFont fontWithName:@"Lato-Bold" size:15]];
         precio.numberOfLines=6;
+        precio.textColor=[UIColor colorWithRed:(108/255.0) green:(108/255.0) blue:(108/255.0) alpha:1];
+
         [precio sizeToFit];
         precio.frame=CGRectMake(50, mapa.frame.size.height+mapa.frame.origin.y+10, 250, precio.frame.size.height);
         [_scrollView addSubview:precio];
         descripcion.frame=CGRectMake(20, precio.frame.size.height+precio.frame.origin.y+10, 280, descripcion.frame.size.height);
     }
     [_scrollView addSubview: descripcion];
+    if ([descripcion.text isEqualToString:@"No disponible"]) {
+        descripcion.text=@"";
+    }
     
+    if ([delegate.alto intValue] < 568)
+    {
+          [_scrollView setContentSize:CGSizeMake(320, descripcion.frame.size.height+descripcion.frame.origin.y+80)];
+        
+    }
+    
+    else
     [_scrollView setContentSize:CGSizeMake(320, descripcion.frame.size.height+descripcion.frame.origin.y+10)];
   
 
